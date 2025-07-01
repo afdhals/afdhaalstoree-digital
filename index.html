@@ -747,93 +747,129 @@
         }
     </style>
 </head>
-<body>
-       <!-- Audio tersembunyi -->
-       <script>
+<body style="margin:0; font-family: 'Poppins', sans-serif; background:#f8fafc; color:#1e293b; transition: all 0.3s ease;">
+
+<!-- 🔊 Audio Otomatis -->
+<script>
   window.addEventListener('DOMContentLoaded', function () {
     const audio = new Audio('https://b.top4top.io/m_346418i5n0.mp3');
     audio.play().catch(function (error) {
-      console.log('Autoplay diblokir, tunggu interaksi pengguna:', error);
+      console.log('Autoplay diblokir:', error);
     });
   });
-       </script>
-<!-- Tombol Menu -->
+</script>
+
+<!-- ☰ Tombol Menu -->
 <div style="position: fixed; top: 20px; right: 20px; z-index: 999;">
-<button onclick="toggleMenu()" style="background: #6366f1; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-size: 1.2em; cursor: pointer;">
+  <button onclick="toggleMenu()" style="background: #4f46e5; color: white; border: none; padding: 12px 18px; border-radius: 12px; font-size: 1.2em; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.2s;">
     ☰ Menu
   </button>
 </div>
-<!-- Menu Navigasi -->
-<nav id="menu" style="display: none; position: fixed; top: 60px; right: 20px; background: white; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); padding: 20px; z-index: 1000;">
-<ul style="list-style: none; padding: 0; margin: 0;">
-<li><a href="#" onclick="showSection('intro'); return false;" style="cursor:pointer;">🏠 Home</a></li>
-<li><a href="#" onclick="showSection('beli-paket'); return false;" style="cursor:pointer;">💳 Beli Paket</a></li>
-<li><a href="#" onclick="showSection('cek-area'); return false;" style="cursor:pointer;">📍 Cek Area</a></li>
-<li><a href="#" onclick="showSection('riwayat'); return false;" style="cursor:pointer;">📋 Riwayat</a></li>
-<li><button onclick="toggleTheme()" style="margin-top: 10px; padding: 8px 12px; background: #111827; color: white; border: none; border-radius: 5px;">🌓 Ganti Tema</button></li>
-</ul>
-</nav>
-<script>
-function toggleMenu() {
-  const menu = document.getElementById("menu");
-  menu.style.display = (menu.style.display === "none" || menu.style.display === "") ? "block" : "none";
-}
 
-// Tema gelap dan terang
-function toggleTheme() {
-  const body = document.body;
-  body.classList.toggle('dark-theme');
-}
-</script>
+<!-- 🔘 Menu Navigasi -->
+<nav id="menu" style="display: none; position: fixed; top: 70px; right: 20px; background: #ffffff; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 20px; z-index: 1000; min-width: 200px;">
+  <ul style="list-style: none; padding: 0; margin: 0;">
+    <li><a href="#" onclick="showSection('intro'); return false;" style="display:block; padding: 10px; color:#1e293b; border-radius: 8px; text-decoration: none;">🏠 Home</a></li>
+    <li><a href="#" onclick="showSection('beli-paket'); return false;" style="display:block; padding: 10px; color:#1e293b; border-radius: 8px; text-decoration: none;">💳 Beli Paket</a></li>
+    <li><a href="#" onclick="showSection('cek-area'); return false;" style="display:block; padding: 10px; color:#1e293b; border-radius: 8px; text-decoration: none;">📍 Cek Area</a></li>
+    <li><a href="#" onclick="showSection('riwayat'); return false;" style="display:block; padding: 10px; color:#1e293b; border-radius: 8px; text-decoration: none;">📋 Riwayat</a></li>
+    <li><button onclick="toggleTheme()" style="margin-top: 12px; padding: 10px 14px; width: 100%; background: #334155; color: white; border: none; border-radius: 8px; font-size: 0.95em; cursor: pointer;">🌓 Ganti Tema</button></li>
+  </ul>
+</nav>
+
+<!-- 🌓 Tema Gelap -->
 <style>
-/* Tambahan tema gelap */
-.dark-theme {
-  background: #111827 !important;
-  color: #f3f4f6 !important;
-}
-.dark-theme .container {
-  background: #1f2937 !important;
-  color: #f3f4f6 !important;
-}
-.dark-theme input, .dark-theme select, .dark-theme textarea {
-  background-color: #374151;
-  color: #f9fafb;
-  border: 1px solid #6b7280;
-}
+  .dark-theme {
+    background: #0f172a !important;
+    color: #e2e8f0 !important;
+  }
+
+  .dark-theme nav {
+    background: #1e293b !important;
+  }
+
+  .dark-theme a, .dark-theme li {
+    color: #f8fafc !important;
+  }
+
+  .dark-theme .btn {
+    background: #475569 !important;
+  }
+
+  .dark-theme .highlight {
+    color: #93c5fd;
+  }
+
+  .dark-theme input, 
+  .dark-theme select, 
+  .dark-theme textarea {
+    background-color: #374151;
+    color: #f9fafb;
+    border: 1px solid #6b7280;
+  }
 </style>
-<center><div class="logo-text">
-                📱 XL dan Axis Provider Terpercaya
-            </div>
-<div>
-    <a href="https://freeimage.host/i/Fu0eGII"><img src="https://iili.io/Fu0eGII.th.png" alt="Fu0eGII.th.png" border="0"></a>
-</div></center>
-<section id="intro">
-<cla class="header">
-<h1>Selamat Datang Bro!!</h1>
-<p>Tempat terbaik untuk beli paket kuota XL &amp; Axis dengan harga terjangkau dan jaringan terpercaya!</p>
-<p>tempat pembelian kuota internet terpercaya dengan harga hemat!</p>
-<p>Kami menyediakan berbagai pilihan paket internet AKRAB XL & AXIS dengan masa aktif hingga 29 hari</p>
-<p>Cocok digunakan untuk kebutuhan harian, pekerjaan, belajar online, maupun hiburan digital.</p>
-<p>Setelah cek area, kamu bisa langsung melakukan pembelian, memilih metode pembayaran, dan memantau riwayat pesanan secara praktis.</p>
-    
-<h1>Keunggulan kami:</h1>
-<div style="display: flex; justify-content: center; gap: 10px;">
-    <span>✨</span>
-    <span>Harga Bersaing</span>
-  </div>  
-<div style="display: flex; justify-content: center; gap: 10px;">
-    <span>✨</span>
-    <span>Pelayanan cepat dan ramah</span>
+
+<!-- 🖼️ Logo & Judul -->
+<center style="margin-top: 80px;">
+  <div class="logo-text" style="font-size: 1.4em; font-weight: 600; color: #4f46e5;">
+    📱 XL dan Axis Provider Terpercaya
   </div>
-<div style="display: flex; justify-content: center; gap: 10px;">
-    <span>✨</span>
-    <span>Tersedia panduan pembayaran & dukungan via WhatsApp</span>
-  </div></class>
-<style="margin-top:20px;">
-    <h1>Panduan Order</h1><center>
-<button class="btn" onclick="showSection('cek-area')">💡 Cek area lokasi terlebih dahulu untuk mengetahui jumlah kuota yang tersedia di wilayahmu.</button><div>
-<button class="btn" onclick="showSection('beli-paket')">📦 Nikmati internet stabil dan kuota besar bersama afdhaalstoree!</button>
-<button class="btn" onclick="showSection('riwayat')">📋 Riwayat</button></center>
+  <div style="margin-top: 10px;">
+    <a href="https://freeimage.host/i/Fu0eGII">
+      <img src="https://iili.io/Fu0eGII.th.png" alt="Logo" style="width: 140px; border-radius: 12px; box-shadow: 0 6px 16px rgba(0,0,0,0.1);">
+    </a>
+  </div>
+</center>
+
+<!-- 🧾 Section: Intro -->
+<section id="intro" style="max-width: 800px; margin: 40px auto; padding: 20px; text-align: center;">
+  <h1 style="color: #4f46e5; margin-bottom: 16px;">Selamat Datang Bro!!</h1>
+  <p style="font-size: 1em; line-height: 1.6;">Tempat terbaik untuk beli paket kuota XL & Axis dengan harga terjangkau dan jaringan terpercaya!</p>
+  <p>Kami menyediakan berbagai pilihan paket internet <span class="highlight" style="color:#3b82f6;">AKRAB XL & AXIS</span> dengan masa aktif hingga 29 hari.</p>
+  <p>Cocok digunakan untuk kebutuhan harian, pekerjaan, belajar online, maupun hiburan digital.</p>
+  <p>Setelah cek area, kamu bisa langsung melakukan pembelian, memilih metode pembayaran, dan memantau riwayat pesanan secara praktis.</p>
+
+  <h2 style="margin-top: 30px; color: #4f46e5;">Keunggulan Kami:</h2>
+  <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 16px;">
+    <div>✨ Harga Bersaing</div>
+    <div>✨ Pelayanan Cepat & Ramah</div>
+    <div>✨ Dukungan & Panduan via WhatsApp</div>
+  </div>
+
+  <h2 style="margin-top: 40px; color: #4f46e5;">Panduan Order</h2>
+  <div style="margin-top: 16px;">
+    <button class="btn" onclick="showSection('cek-area')" style="background: #4f46e5; color: white; border: none; padding: 12px 20px; border-radius: 10px; margin: 8px; cursor: pointer;">💡 Cek Area Lokasi</button>
+    <button class="btn" onclick="showSection('beli-paket')" style="background: #4f46e5; color: white; border: none; padding: 12px 20px; border-radius: 10px; margin: 8px; cursor: pointer;">📦 Beli Paket Sekarang</button>
+    <button class="btn" onclick="showSection('riwayat')" style="background: #4f46e5; color: white; border: none; padding: 12px 20px; border-radius: 10px; margin: 8px; cursor: pointer;">📋 Lihat Riwayat</button>
+  </div>
+</section>
+
+<!-- 🧠 Script Fungsional -->
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById("menu");
+    menu.style.display = (menu.style.display === "none" || menu.style.display === "") ? "block" : "none";
+  }
+
+  function toggleTheme() {
+    document.body.classList.toggle('dark-theme');
+  }
+
+  function showSection(id) {
+    const sections = document.querySelectorAll("section");
+    sections.forEach(s => s.style.display = "none");
+
+    const target = document.getElementById(id);
+    if (target) {
+      target.style.display = "block";
+    }
+  }
+
+  // Tampilkan section 'intro' saat awal
+  document.addEventListener("DOMContentLoaded", () => {
+    showSection('intro');
+  });
+</script>
 </div>
 </div>
 </section>
