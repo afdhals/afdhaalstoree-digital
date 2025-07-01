@@ -749,12 +749,6 @@
 </head>
 <body>
        <!-- Audio tersembunyi -->
-<audio id="sound" autoplay style="display: none;">
-  <source src="https://b.top4top.io/m_346418i5n0.mp3" type="audio/mpeg">
-</audio>
-       <audio autoplay hidden>
-  <source src="https://b.top4top.io/m_346418i5n0.mp3" type="audio/mpeg">
-       </audio>
        <script>
   window.addEventListener('DOMContentLoaded', function () {
     const audio = new Audio('https://b.top4top.io/m_346418i5n0.mp3');
@@ -1557,7 +1551,7 @@ function showSection(id) {
   
       // Random posisi dan ukuran
       snowflake.style.left = Math.random() * window.innerWidth + 'px';
-      snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+      snowflake.style.fontSize = (Math.random() * 5 + 5) + 'px';
       snowflake.style.animationDuration = (Math.random() * 5 + 5) + 's';
   
       document.body.appendChild(snowflake);
@@ -1568,14 +1562,5 @@ function showSection(id) {
     }
   
     setInterval(createSnowflake, 200);
-  </script>  
-       <script>
-  window.addEventListener('DOMContentLoaded', function () {
-    const audio = new Audio('https://b.top4top.io/m_346418i5n0.mp3');
-    audio.play().catch(function (error) {
-      console.log('Autoplay diblokir, tunggu interaksi pengguna:', error);
-    });
-  });
-       </script>
 </body>
 </html>
