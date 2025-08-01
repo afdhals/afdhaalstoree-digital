@@ -4,8 +4,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta property="og:image" content="https://iili.io/F7s67WX.png">
-<title>Kuota XL Axis - @afdhaalstoree</title>
+<meta property="og:image" content="https://iili.io/Fu0eGII.th.png">
+<title>Toko Digital</title>
 <style>
         * {
             margin: 0;
@@ -62,12 +62,43 @@
 
         .logo-placeholder:hover {
             background: rgba(255, 255, 255, 0.3);
+            padding: 80px 20px;
             border-color: rgba(255, 255, 255, 0.8);
         }
 
-        .logo-xl {
-        background: ('https://c.top4top.io/p_3437tdp9s0.png') center/contain no-repeat;
+        .header-bar {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        right: 20px;
+        z-index: 999;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         }
+
+        .logo-header img {
+        height: 70px; /* Sesuaikan ukuran logo */
+        background: #000000;
+        border-bottom-left-radius: 50% 50%;
+        border-bottom-right-radius: 50% 50%;
+        border-top-left-radius: 50% 50%;
+        border-top-right-radius: 50% 50%;
+        opacity: 1;
+        }
+
+        .menu-button {
+        background: #000000;
+        color: white;
+        border: none;
+        padding: 12px 18px;
+        border-radius: 12px;
+        font-size: 1.2em;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        transition: 0.2s;
+        }
+
         .logo-text {
             color: white;
             font-size: 1.1em;
@@ -703,7 +734,7 @@
                 grid-template-columns: 1fr;
                 padding: 20px;
             }
-            
+
             .header h1 {
                 font-size: 2.2em;
             }
@@ -750,29 +781,25 @@
 </head>
 <body style="margin:0; font-family: 'Poppins', sans-serif; background:#f8fafc; color:#1e293b; transition: all 0.3s ease;">
 
-<!-- 🔊 Audio Otomatis -->
-<script>
-  window.addEventListener('DOMContentLoaded', function () {
-    const audio = new Audio('https://b.top4top.io/m_346418i5n0.mp3');
-    audio.play().catch(function (error) {
-      console.log('Autoplay diblokir:', error);
-    });
-  });
-</script>
-
 <!-- ☰ Tombol Menu -->
-<div style="position: fixed; top: 20px; right: 20px; z-index: 999;">
-  <button onclick="toggleMenu()" style="background: #4f46e5; color: white; border: none; padding: 12px 18px; border-radius: 12px; font-size: 1.2em; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.2s;">
+<!-- Header Bar dengan Logo & Menu -->
+<div class="header-bar">
+  <div class="logo-header">
+    <img src="https://iili.io/Fu0eGII.th.png" alt="Logo" />
+  </div>
+  <button onclick="toggleMenu()" class="menu-button">
     ☰ Menu
   </button>
 </div>
+
 
 <!-- 🔘 Menu Navigasi -->
 <nav id="menu" style="display: none; position: fixed; top: 70px; right: 20px; background: #ffffff; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 20px; z-index: 1000; min-width: 200px;">
   <ul style="list-style: none; padding: 0; margin: 0;">
     <li><a href="#" onclick="showSection('intro'); return false;" style="display:block; padding: 10px; color:#1e293b; border-radius: 8px; text-decoration: none;">🏠 Home</a></li>
-    <li><a href="#" onclick="showSection('beli-paket'); return false;" style="display:block; padding: 10px; color:#1e293b; border-radius: 8px; text-decoration: none;">💳 Beli Paket</a></li>
+    <li><a href="#" onclick="showSection('beli-paket'); return false;" style="display:block; padding: 10px; color:#1e293b; border-radius: 8px; text-decoration: none;">🌐 Paket Data</a></li>
     <li><a href="#" onclick="showSection('cek-area'); return false;" style="display:block; padding: 10px; color:#1e293b; border-radius: 8px; text-decoration: none;">📍 Cek Area</a></li>
+    <li><a href="#" onclick="showSection('produk-digital'); return false;" style="display:block; padding: 10px; color:#1e293b; border-radius: 8px; text-decoration: none;">🤖 Produk Digital</a></li>
     <li><a href="#" onclick="showSection('riwayat'); return false;" style="display:block; padding: 10px; color:#1e293b; border-radius: 8px; text-decoration: none;">📋 Riwayat</a></li>
     <li><button onclick="toggleTheme()" style="margin-top: 12px; padding: 10px 14px; width: 100%; background: #334155; color: white; border: none; border-radius: 8px; font-size: 0.95em; cursor: pointer;">🌓 Ganti Tema</button></li>
   </ul>
@@ -781,7 +808,7 @@
 <!-- 🌓 Tema Gelap -->
 <style>
   .dark-theme {
-    background: #0f172a !important;
+    background: #080505 !important;
     color: #e2e8f0 !important;
   }
 
@@ -813,39 +840,86 @@
 <!-- 🖼️ Logo & Judul -->
 <center style="margin-top: 80px;">
   <div class="logo-text" style="font-size: 1.4em; font-weight: 600; color: #4f46e5;">
-    📱 XL dan Axis Provider Terpercaya
+    🛍️Toko Digital Terpercaya
   </div>
-  <div style="margin-top: 10px; background: black; padding: 20px; border-radius: 16px; display: inline-block;">
+  <div style="margin-top: 10px; padding: 20px; border-radius: 16px; display: inline-block;">
     <a href="https://freeimage.host/i/Fu0eGII">
-      <img src="https://iili.io/Fu0eGII.th.png" alt="Logo" style="width: 140px; border-radius: 12px; box-shadow: 0 6px 16px rgba(0,0,0,0.3); background: black;">
+      <img src="https://iili.io/FUZnlCx.png" alt="Logo" style="width: 140px; border-radius: 12px; box-shadow: 0 6px 16px; background:">
     </a>
   </div>
 </center>
 
 <!-- 🧾 Section: Intro -->
 <section id="intro" style="max-width: 800px; margin: 40px auto; padding: 20px; text-align: center;">
-  <h1 style="color: #4f46e5; margin-bottom: 16px;">Selamat Datang Bro!!</h1>
-  <p style="font-size: 1em; line-height: 1.6;">Tempat terbaik untuk beli paket kuota XL & Axis dengan harga terjangkau dan jaringan terpercaya!</p>
-  <p>Kami menyediakan berbagai pilihan paket internet <span class="highlight" style="color:#3b82f6;">AKRAB XL & AXIS</span> dengan masa aktif hingga 29 hari.</p>
+  <h1 style="color: #4f46e5; margin-bottom: 16px;">Welcome Bro!!</h1>
+  <p style="font-size: 1em; line-height: 1.6;">Tempat terbaik untuk beli Produk Digital dengan harga terjangkau dan jaringan terpercaya!</p>
+  <p>Kami menyediakan berbagai pilihan paket internet dan keperluan digital lainnya, Kami menyediakan paket internet terkhusus pada Provider <span class="highlight" style="color:#3b82f6;">XL & AXIS</span> dengan banyak pilihan paket data dan harga terjangkau.</p>
   <p>Cocok digunakan untuk kebutuhan harian, pekerjaan, belajar online, maupun hiburan digital.</p>
-  <p>Setelah cek area, kamu bisa langsung melakukan pembelian, memilih metode pembayaran, dan memantau riwayat pesanan secara praktis.</p>
+  <p>.......</p>
 
-  <h2 style="margin-top: 30px; color: #4f46e5;">Keunggulan Kami:</h2>
-  <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 16px;">
-    <div>✨ Harga Bersaing</div>
-    <div>✨ Pelayanan Cepat & Ramah</div>
-    <div>✨ Dukungan & Panduan via WhatsApp</div>
+  <div id="keunggulan-section" style="opacity: 0; transform: translateY(20px); transition: all 0.6s;">
+  <h2 style="margin-top: 30px; color: #4f46e5;">Keunggulan Kami</h2>
+  <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+    <div style="max-width: 400px; margin: 40px auto; padding: 20px; border-radius: 12px; box-shadow: 0 6px 16px rgba(0,0,0,0.08); background: #e0f7ff;">
+
+   <!-- Harga Murah -->
+  <div style="display: flex; align-items: flex-start; justify-content: flex-start; margin-bottom: 24px;">
+    <div style="font-size: 28px; margin-right: 12px;"></div>
+    <div style="font-size: 20px; font-weight: 600; color: #000101;">⭐Harga Murah Berkualitas</div>
   </div>
 
-  <h2 style="margin-top: 40px; color: #4f46e5;">Panduan Order</h2>
+  <!-- Pelayanan Cepat & Ramah -->
+  <div style="display: flex; align-items: flex-start; justify-content: flex-start; margin-bottom: 24px;">
+    <div style="font-size: 28px; margin-right: 12px;"></div>
+    <div style="font-size: 20px; font-weight: 600; color: #000000;">
+      <div>🟡Pelayanan Cepat & Ramah</div>
+      <div></div>
+    </div>
+  </div>
+
+  <!-- Semua Produk Garansi -->
+  <div style="display: flex; align-items: flex-start; justify-content: flex-start;">
+    <div style="font-size: 28px; margin-right: 12px;"></div>
+    <div style="font-size: 20px; font-weight: 600; color: #000000;">
+      <div>💙Semua Produk Garansi</div>
+      <div>
+    </div>
+  </div>
+
+</div>
+
+  </div>
+
+  <div id="panduan-section" style="margin-top: 40px; opacity: 0; transform: translateY(20px); transition: all 0.6s;">
+  <h2 style="color: #4f46e5;">Panduan Order</h2>
   <div style="margin-top: 16px;">
     <button class="btn" onclick="showSection('cek-area')" style="background: #4f46e5; color: white; border: none; padding: 12px 20px; border-radius: 10px; margin: 8px; cursor: pointer;">💡 Cek Area Lokasi</button>
-    <button class="btn" onclick="showSection('beli-paket')" style="background: #4f46e5; color: white; border: none; padding: 12px 20px; border-radius: 10px; margin: 8px; cursor: pointer;">📦 Beli Paket Sekarang</button>
+    <button class="btn" onclick="showSection('beli-paket')" style="background: #4f46e5; color: white; border: none; padding: 12px 20px; border-radius: 10px; margin: 8px; cursor: pointer;">📦 Beli Paket Data</button>
     <button class="btn" onclick="showSection('riwayat')" style="background: #4f46e5; color: white; border: none; padding: 12px 20px; border-radius: 10px; margin: 8px; cursor: pointer;">📋 Lihat Riwayat</button>
+     <button class="btn" onclick="showSection('produk-digital')" style="background: #4f46e5; color: white; border: none; padding: 12px 20px; border-radius: 10px; margin: 8px; cursor: pointer;">🤖 Produk Digital</button>
     <a href="https://chat.whatsapp.com/JP7FnPrSve36VmWG232TSm?mode=ac_c" target="_blank">
-  <button style="padding: 12px 24px; background-color: #25D366; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer;">Join Grup WhatsApp</button></a>
+  <button style="padding: 12px 24px; background-color: #4f46e5; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer;">Join Grup WhatsApp</button></a>
   </div>
 </section>
+
+<script>
+function revealOnScroll() {
+    const sections = [
+        document.getElementById("keunggulan-section"),
+        document.getElementById("panduan-section")
+    ];
+
+    sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+            section.style.opacity = 1;
+            section.style.transform = "translateY(0)";
+        }
+    });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+</script>
 
 <!-- 🧠 Script Fungsional -->
 <script>
@@ -876,8 +950,183 @@
 </div>
 </div>
 </section>
-<section id="beli-paket" style="display:none;"><div class="packages">
-<!-- Paket BIG -->
+<section id="produk-digital" style="display:none;"><div class="packages">
+<!-- Paket 1 -->
+<div class="package">
+<div class="package-title">PAKET MURAH DIGITAL</div>
+<div class="package-duration">⏰ MASA AKTIF LIFETIME</div>
+<div class="package-details">
+<div class="area-item">
+<a href="https://freeimage.host/id"><img src="https://iili.io/FgpH9Sf.png" alt="FUioOSn.jpg" border="0" /></a>
+<span class="area-quota">Beli ini untuk menghemat uangmu!</span>
+</div>
+</div>
+<div class="package-price">💰 Rp 35.000</div>
+<button class="btn" onclick="openPaymentModal('PAKET DIGITAL HEMAT', 35000)">Beli Sekarang</button>
+</div>
+<!-- Paket 1 -->
+<div class="package">
+<div class="package-title">🧙ECOURSE - KELAS HACK YOUTUBE </div>
+<div class="package-duration">⏰ MASA AKTIF LIFETIME</div>
+<div class="package-details">
+<div class="area-item">
+<a href="https://freeimage.host/id"><img src="https://iili.io/FUioOSn.jpg" alt="FUioOSn.jpg" border="0" /></a>
+<span class="area-quota">Bangun Channel Cepat dan Menghasilkan</span>
+</div>
+</div>
+<div class="package-price">💰 Rp 5.000</div>
+<button class="btn" onclick="openPaymentModal('KELAS HACK YOUTOBE', 5000)">Beli Sekarang</button>
+</div>
+<!-- Paket 1 -->
+<div class="package">
+<div class="package-title">🧙ECOURSE - KELAS CYBER SECURITY </div>
+<div class="package-duration">⏰ MASA AKTIF LIFETIME</div>
+<div class="package-details">
+<div class="area-item">
+<a href="https://freeimage.host/id"><img src="https://iili.io/FgzmLTg.md.png" alt="FUioOSn.jpg" border="0" /></a>
+<span class="area-quota">Belajar Dunia Keamanan Siber untuk Pemula dari Nol hingga Mahir - Materi Video Pembelajaran</span>
+</div>
+</div>
+<div class="package-price">💰 Rp 5.000</div>
+<button class="btn" onclick="openPaymentModal('KELAS CYBER SECURITY', 5000)">Beli Sekarang</button>
+</div>
+<!-- Paket 1 -->
+<div class="package">
+<div class="package-title">70.000+ Prompts ChatGPT</div>
+<div class="package-duration">⏰ MASA AKTIF LIFETIME</div>
+<div class="package-details">
+<div class="area-item">
+<a href="https://freeimage.host/id"><img src="https://iili.io/FgskLc7.png" alt="FUioOSn.jpg" border="0" /></a>
+<span class="area-quota">Prompt Siap Pakai, Solusi Terbaik Buat Sukses Bisnis Online!</span>
+</div>
+</div>
+<div class="package-price">💰 Rp 5.000</div>
+<button class="btn" onclick="openPaymentModal('70.000+ Prompts ChatGPT', 5000)">Beli Sekarang</button>
+</div>
+<!-- Paket 1 -->
+<div class="package">
+<div class="package-title">🧙ECOURSE - MASTERKEY FOREX</div>
+<div class="package-duration">⏰ MASA AKTIF LIFETIME</div>
+<div class="package-details">
+<div class="area-item">
+<a href="https://freeimage.host/id"><img src="https://iili.io/FgIBrxV.png" alt="FUioOSn.jpg" border="0" /></a>
+<span class="area-quota">CARA PROFIT DI TRADING FOREX DG AKURASI TINGGI HINGGA 90%</span>
+</div>
+</div>
+<div class="package-price">💰 Rp 5.000</div>
+<button class="btn" onclick="openPaymentModal('MASTERKEY FOREX', 5000)">Beli Sekarang</button>
+</div>
+<!-- Paket 1 -->
+<div class="package">
+<div class="package-title">🧙ECOURSE - CRYPTO TRADING PSYCHOLOGY</div>
+<div class="package-duration">⏰ MASA AKTIF LIFETIME</div>
+<div class="package-details">
+<div class="area-item">
+<a href="https://freeimage.host/id"><img src="https://iili.io/FgLsi5x.png" alt="FUioOSn.jpg" border="0" /></a>
+<span class="area-quota">KUNCI UNTUK MENGAMBIL KEPUTUSAN CERDAS & MENGHINDARI KESALAHAN EMOSIONAL</span>
+</div>
+</div>
+<div class="package-price">💰 Rp 5.000</div>
+<button class="btn" onclick="openPaymentModal('CRYPTO TRADING PSYCHOLOGY', 5000)">Beli Sekarang</button>
+</div>
+<!-- Paket 1 -->
+<div class="package">
+<div class="package-title">🧙ECOURSE - PUBLIC SPEAKING</div>
+<div class="package-duration">⏰ MASA AKTIF LIFETIME</div>
+<div class="package-details">
+<div class="area-item">
+<a href="https://freeimage.host/id"><img src="https://iili.io/FgQlokN.png" alt="FUioOSn.jpg" border="0" /></a>
+<span class="area-quota">Belajar Menjadi Pembicara Handal dan Sukses</span>
+</div>
+</div>
+<div class="package-price">💰 Rp 5.000</div>
+<button class="btn" onclick="openPaymentModal('KELAS PUBLIC SPEAKING', 5000)">Beli Sekarang</button>
+</div>
+<!-- Paket 1 -->
+<div class="package">
+<div class="package-title">🧙ECOURSE - BAHASA INGGRIS</div>
+<div class="package-duration">⏰ MASA AKTIF LIFETIME</div>
+<div class="package-details">
+<div class="area-item">
+<a href="https://freeimage.host/id"><img src="https://iili.io/Fgmxul2.png" alt="FUioOSn.jpg" border="0" /></a>
+<span class="area-quota">Perluas Komunikasimu Dengan Mengerti Bahasa Inggris!</span>
+</div>
+</div>
+<div class="package-price">💰 Rp 5.000</div>
+<button class="btn" onclick="openPaymentModal('KELAS PUBLIC SPEAKING', 5000)">Beli Sekarang</button>
+</div>
+<!-- Paket 1 -->
+<div class="package">
+<div class="package-title">🎵BACKSOUND MUSIK CONTENT CREATOR</div>
+<div class="package-duration">⏰ MASA AKTIF LIFETIME</div>
+<div class="package-details">
+<div class="area-item">
+<a href="https://freeimage.host/id"><img src="https://iili.io/FgQlxpI.png" alt="FUioOSn.jpg" border="0" /></a>
+<span class="area-quota">7,5GB Audio Musik Tanpa Copyright Siap Digunakan</span>
+</div>
+</div>
+<div class="package-price">💰 Rp 5.000</div>
+<button class="btn" onclick="openPaymentModal('BACKSOUND MUSIK', 5000)">Beli Sekarang</button>
+</div>
+<!-- Paket 1 -->
+<div class="package">
+<div class="package-title">Aplikasi Nonton Film VIP</div>
+<div class="package-duration">⏰ MASA AKTIF LIFETIME</div>
+<div class="package-details">
+<div class="area-item">
+<a href="https://freeimage.host/id"><img src="https://iili.io/FgDUt94.png" alt="FUioOSn.jpg" border="0" /></a>
+<span class="area-quota">Nonton Film Tanpa Berlangganan, Film Terupdate</span>
+</div>
+</div>
+<div class="package-price">💰 Rp 5.000</div>
+<button class="btn" onclick="openPaymentModal('Aplikasi Nonton Film VIP', 5000)">Beli Sekarang</button>
+</div>
+<!-- Paket 1 -->
+<div class="package">
+<div class="package-title">50+ EBOOK</div>
+<div class="package-duration">⏰ MASA AKTIF LIFETIME</div>
+<div class="package-details">
+<div class="area-item">
+<a href="https://freeimage.host/id"><img src="https://iili.io/FgbNsN1.png" alt="FUioOSn.jpg" border="0" /></a>
+<span class="area-quota">Baca Buku Dimana Saja dan Kapan Saja!</span>
+</div>
+</div>
+<div class="package-price">💰 Rp 5.000</div>
+<button class="btn" onclick="openPaymentModal('PAKET EBOOK', 5000)">Beli Sekarang</button>
+</div>
+<!-- Paket 1 -->
+<div class="package">
+<div class="package-title">GAME NARUTO STORM 4</div>
+<div class="package-duration">⏰ MASA AKTIF LIFETIME</div>
+<div class="package-details">
+<div class="area-item">
+<a href="https://freeimage.host/id"><img src="https://iili.io/Fgpohsj.jpg" alt="FUioOSn.jpg" border="0" /></a>
+<span class="area-quota">Mari mengingat masa lalu!</span>
+</div>
+</div>
+<div class="package-price">💰 Rp 5.000</div>
+<button class="btn" onclick="openPaymentModal('GAME NARUTO STORM 4', 5000)">Beli Sekarang</button>
+</div>
+<!-- Paket 1 -->
+<div class="package">
+<div class="package-title">AKUN GEMINI PRO</div>
+<div class="package-duration">⏰ MASA AKTIF 11 BULAN</div>
+<div class="package-details">
+<div class="area-item">
+<a href="https://freeimage.host/id"><img src="https://iili.io/Fgy34Dv.png" alt="FUioOSn.jpg" border="0" /></a>
+<span class="area-quota">Pilihan Terbaik Untuk Membuat Video Kreatif Fyp</span>
+</div>
+</div>
+<div class="package-price">💰 Rp 23.000</div>
+<button class="btn" onclick="openPaymentModal('AKUN GEMINI PRO', 23000)">Beli Sekarang</button>
+</div>
+
+</div>
+</div>
+</div></section>
+<div></div>
+ <section id="beli-paket" style="display:none;><div class="packages">
+     <!-- Paket BIG -->
 <div class="package">
 <div class="package-title">📱 PAKET AKRAB XL (BIG)</div>
 <div class="package-duration">⏰ MASA AKTIF 29 HARI</div>
@@ -1001,7 +1250,8 @@
                     💡 Pastikan nomor HP sudah terdaftar di jaringan XL/Axis sebelum pembelian
                 </p>
 </div>
-</div></section>
+</div>
+  </section>
 <!-- Area Checker Section -->
 <section id="cek-area" style="display:none;"><div class="area-checker">
 <h2>🔍 Cek Area Anda</h2>
@@ -1039,6 +1289,8 @@
 </div>
 </div>
 </div></section>
+<div></div>
+<div></div>
 <!-- Payment Methods Section -->
 <!-- Order History Section -->
 <section id="riwayat" style="display:none;"><div class="order-history">
@@ -1071,11 +1323,11 @@
 </div>
 </div>
 <div class="form-group">
-<label for="customerName">Nama Lengkap *</label>
+<label for="customerName">Nama *</label>
 <input id="customerName" placeholder="Masukkan nama lengkap" required="" type="text"/>
 </div>
 <div class="form-group">
-<label for="customerPhone">Nomor HP yang akan diisi kuota *</label>
+<label for="customerPhone">Nomor Tujuan *</label>
 <input id="customerPhone" placeholder="08xxxxxxxxxx" required="" type="tel"/>
 </div>
 <div class="form-group">
@@ -1416,26 +1668,20 @@
 
             const paymentDetails = getPaymentDetails(selectedPaymentMethod);
 
-            const message = `🎉 PESANAN BARU KUOTA XL AXIS!\n\n` +
-                          `📦 Paket: ${selectedPackageName}\n` +
-                          `💰 Harga: Rp ${formatPrice(selectedPackagePrice)}\n` +
-                          `👤 Nama: ${name}\n` +
-                          `📱 Nomor HP: ${phone}\n` +
-                          `📧 Email: ${email || 'Tidak ada'}\n` +
-                          `💳 Metode Bayar: ${selectedPaymentMethod.toUpperCase()}\n` +
-                          `🏦 ${paymentDetails}\n` +
-                          `⏰ Waktu Pesan: ${currentTime}\n\n` +
-                          `📋 INSTRUKSI PEMBAYARAN:\n` +
-                          `1️⃣ Transfer sesuai nominal ke rekening di atas\n` +
-                          `2️⃣ Kirim foto bukti transfer ke nomor ini\n` +
-                          `3️⃣ Tunggu konfirmasi dari admin\n` +
-                          `4️⃣ Kuota akan diproses dalam 1x24 jam\n\n` +
-                          `⚠️ PENTING:\n` +
-                          `• Pastikan nomor ${phone} sudah terdaftar XL/Axis\n` +
-                          `• Kirim bukti pembayaran untuk konfirmasi\n` +
-                          `• Simpan chat ini sebagai bukti pesanan\n\n` +
-                          `🔗 Sumber: Website Kuota XL Axis\n` +
-                          `📞 CS: 087777626887`;
+            const message = `*HALO, SAYA INGIN MEMESAN*\n\n` +
+                          `*Paket:* ${selectedPackageName}\n` +
+                          `*Harga:* Rp ${formatPrice(selectedPackagePrice)}\n` +
+                          `*Nama:* ${name}\n` +
+                          `*Nomor HP:* ${phone}\n` +
+                          `*Email:* ${email || 'Tidak ada'}\n` +
+                          `*Metode Bayar:* ${selectedPaymentMethod.toUpperCase()}\n` +
+                          `${paymentDetails}\n` +
+                          `Waktu Pesan: ${currentTime}\n\n` +
+                          `*INSTRUKSI PEMBAYARAN:*\n` +
+                          `*1.* Transfer sesuai nominal ke rekening di atas\n` +
+                          `*2.* Kirim foto bukti transfer ke nomor ini\n` +
+                          `*3.* Tunggu konfirmasi dari admin\n` +
+                          `*4.* Kuota akan diproses dalam 1x24 jam\n\n`
             
             // Open WhatsApp with auto message
             const whatsappUrl = `https://wa.me/6287777626887?text=${encodeURIComponent(message)}`;
@@ -1586,7 +1832,7 @@
     </script>
 <script>
 function showSection(id) {
-    const sections = ['intro', 'beli-paket', 'cek-area', 'riwayat'];
+    const sections = ['intro', 'beli-paket', 'produk-digital', 'cek-area', 'riwayat'];
     sections.forEach(sid => {
         const el = document.getElementById(sid);
         if (el) {
@@ -1632,7 +1878,7 @@ function showSection(id) {
   
       // Random posisi dan ukuran
       snowflake.style.left = Math.random() * window.innerWidth + 'px';
-      snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+      snowflake.style.fontSize = (Math.random() * 1 + 10) + 'px';
       snowflake.style.animationDuration = (Math.random() * 5 + 5) + 's';
   
       document.body.appendChild(snowflake);
@@ -1644,5 +1890,23 @@ function showSection(id) {
   
     setInterval(createSnowflake, 200);
   </script>
+  <!-- Scroll to Top Button -->
+  <button onclick="scrollToTop()" id="scrollTopBtn" style="display:none; position:fixed; bottom:30px; right:30px; padding:12px 16px; background:#4f46e5; color:white; border:none; border-radius:50%; font-size:18px; cursor:pointer; box-shadow:0 4px 10px rgba(0,0,0,0.2); z-index:1000;">↑</button>
+  <script>
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = () => {
+      scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
+    };
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  </script>
+
+  <!-- Footer dengan Kontak -->
+  <footer style="background:#e0f7ff; color:#000000; text-align:center; padding:20px; font-size:14px; margin-top:40px;">
+    <p>&copy; 2025 afdhaalstoree</p>
+    <p>💙Testimoni : <a href="https://whatsapp.com/channel/0029VapwPMbF6sn7ZKMdMC2t" style="color:#000000;">Channel Testimoni</a></p>
+    <p>🟢Whatsapp : <a href="tel:087777626887" style="color:#000000;">087777626887</a></p>
+  </footer>
 </body>
 </html>
