@@ -803,6 +803,7 @@
     <li><a href="#" onclick="showSection('cek-area'); return false;" style="display:block; padding: 10px; color:#1e293b; border-radius: 8px; text-decoration: none;">📍 Cek Area</a></li>
     <li><a href="#" onclick="showSection('produk-digital'); return false;" style="display:block; padding: 10px; color:#1e293b; border-radius: 8px; text-decoration: none;">🤖 Produk Digital</a></li>
     <li><a href="#" onclick="showSection('riwayat'); return false;" style="display:block; padding: 10px; color:#1e293b; border-radius: 8px; text-decoration: none;">📋 Riwayat</a></li>
+    <li><a href="#" onclick="showSection('snk'); return false;" style="display:block; padding: 10px; color:#1e293b; border-radius: 8px; text-decoration: none;">📜 S&K</a></li>
     <li><button onclick="toggleTheme()" style="margin-top: 12px; padding: 10px 14px; width: 100%; background: #334155; color: white; border: none; border-radius: 8px; font-size: 0.95em; cursor: pointer;">🌓 Ganti Tema</button></li>
   </ul>
 </nav>
@@ -846,7 +847,7 @@
   </div>
   <div style="margin-top: 10px; padding: 20px; border-radius: 16px; display: inline-block;">
     <a href="https://freeimage.host/i/Fu0eGII">
-      <img src="https://iili.io/FUZnlCx.png" alt="Logo" style="width: 140px; border-radius: 12px; box-shadow: 0 6px 16px; background:">
+      <img src="https://iili.io/FUZnlCx.png" alt="Logo" style="width: 130px; border-radius: 12px; box-shadow: 0 6px 16px; background:">
     </a>
   </div>
 </center>
@@ -952,6 +953,26 @@ window.addEventListener("scroll", revealOnScroll);
 </div>
 </div>
 </section>
+
+<!-- 📜 Section Syarat & Ketentuan -->
+<section id="snk" style="display:none; max-width:900px; margin:40px auto; padding:30px; background:white; border-radius:15px; box-shadow:0 4px 15px rgba(0,0,0,0.1); line-height:1.6;">
+  <h2 style="color:#4f46e5; text-align:center; margin-bottom:20px;">📜 Syarat & Ketentuan</h2>
+  
+  <ol style="padding-left:20px; color:#1e293b; font-size:1em;">
+    <li>Pembelian dianggap sah jika pembayaran telah diterima dan diverifikasi oleh admin.</li>
+    <li>Pastikan nomor tujuan sudah benar dan aktif sebelum melakukan pemesanan.</li>
+    <li>Produk digital yang sudah dikirim tidak dapat dikembalikan atau ditukar.</li>
+    <li>Admin berhak menolak pesanan yang tidak memenuhi ketentuan atau terindikasi penipuan.</li>
+    <li>Waktu proses maksimal 1x24 jam setelah pembayaran terverifikasi.</li>
+    <li>Harga dapat berubah sewaktu-waktu tanpa pemberitahuan sebelumnya.</li>
+    <li>Dengan melakukan pemesanan, Anda dianggap telah menyetujui semua S&K yang berlaku.</li>
+  </ol>
+  
+  <p style="margin-top:20px; font-style:italic; color:#64748b; text-align:center;">
+    Terima kasih telah berbelanja di <strong>afdhaalstoree</strong>. Selamat menikmati layanan kami!
+  </p>
+</section>
+       
 <section id="produk-digital" style="display:none;"><div class="packages">
 <!-- Paket 1 -->
 <div class="package">
@@ -1362,7 +1383,7 @@ window.addEventListener("scroll", revealOnScroll);
 <div class="success-message" id="successSection">
 <div class="success-icon">✅</div>
 <h3>Pesanan Berhasil dibuat!</h3>
-<p>Lanjut kirim bukti pembayaran ke WhatsApp admin.</p>
+<p>Lanjut kirim ke WhatsApp admin dan lakukan pembayaran.</p>
 <p><strong>087777626887</strong></p>
 <button class="btn" onclick="closePaymentModal()" style="margin-top: 20px;">Tutup</button>
 </div>
