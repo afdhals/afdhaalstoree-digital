@@ -7,6 +7,8 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/afdhals/afdhaalstoree-digital/main/logo_shoping.png">
 <link rel="icon" href="https://raw.githubusercontent.com/afdhals/afdhaalstoree-digital/main/logo_shoping.png" type="image/png">
 <title>Toko Digital</title>
+<script src="https://app.sandbox.midtrans.com/snap/snap.js"
+  data-client-key="SB-Mid-client-Lfr0HGl02VGLqqOk"></script>
 <style>
         * {
             margin: 0;
@@ -1212,7 +1214,7 @@ window.addEventListener("scroll", revealOnScroll);
 </div>
 </div></section>
 <div></div>
-<section id="beli-paket" style="display:none;><div class="packages">
+<section id="beli-paket" style="display:none;"><div class="packages">
      <!-- Paket BIG -->
 <div class="package">
 <div class="package-title">📱 PAKET AKRAB XL (BIG)</div>
@@ -1462,6 +1464,9 @@ window.addEventListener("scroll", revealOnScroll);
 </div>
 </div>
 <script>
+  const BACKEND_BASE = "https://api.afdhaalstoree.my.id";
+</script>
+<script>
         let selectedPackageName = '';
         let selectedPackagePrice = 0;
         let selectedPaymentMethod = '';
@@ -1706,217 +1711,105 @@ window.addEventListener("scroll", revealOnScroll);
                 payBtn.textContent = '🔒 Lengkapi Data Terlebih Dahulu';
             }
         }
+       
+async function processPayment() {
+  const customerName  = document.getElementById('customerName').value;
+  const customerPhone = document.getElementById('customerPhone').value;
+  const customerEmail = document.getElementById('customerEmail').value || '';
 
-        function processPayment() {
-            const customerName = document.getElementById('customerName').value;
-            const customerPhone = document.getElementById('customerPhone').value;
-            const customerEmail = document.getElementById('customerEmail').value;
+  if (!customerName || !customerPhone || !selectedPaymentMethod) {
+    alert('Mohon lengkapi semua data yang diperlukan!');
+    return;
+  }
 
-            if (!customerName || !customerPhone || !selectedPaymentMethod) {
-                alert('Mohon lengkapi semua data yang diperlukan!');
-                return;
-            }
+  // Tampilkan loading (UI kamu sudah ada)
+  document.getElementById('paymentForm').style.display = 'none';
+  document.getElementById('loadingSection').style.display = 'block';
 
-            // Show loading
-            document.getElementById('paymentForm').style.display = 'none';
-            document.getElementById('loadingSection').style.display = 'block';
+  // ID unik untuk order
+  const orderId = `INV-${Date.now()}`;
 
-            // Simulate processing
-            setTimeout(() => {
-                // Hide loading
-                document.getElementById('loadingSection').style.display = 'none';
-                
-                // Show success
-                document.getElementById('successSection').style.display = 'block';
-                
-                // Send order to WhatsApp
-                sendOrderToWhatsApp(customerName, customerPhone, customerEmail);
-                
-                // Save order to local storage
-                saveOrderToHistory(customerName, customerPhone, customerEmail);
-                
-                // Update order history display
-                displayOrderHistory();
-                
-            }, 2000);
-        }
+  // (opsional) mapping metode yang dipilih user -> enabled_payments Midtrans
+  const paymentMap = {
+    dana:    ["gopay"],     // DANA tidak langsung; arahkan ke GoPay/QRIS sesuai preferensi
+    gopay:   ["gopay"],
+    seabank: ["bank_transfer"], // tidak spesifik SeaBank; pakai VA umum/QRIS
+    bri:     ["bri_va"]     // langsung BRI VA
+    // qris: ["qris"]
+  };
+  const enabled_payments = paymentMap[selectedPaymentMethod] || undefined;
 
-        // WhatsApp Integration
-        function sendOrderToWhatsApp(name, phone, email) {
-            const currentTime = new Date().toLocaleString('id-ID', {
-                timeZone: 'Asia/Jakarta',
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit'
-            });
+  try {
+    const resp = await fetch(`${BACKEND_BASE}/create-transaction`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        order_id: orderId,
+        gross_amount: selectedPackagePrice,
+        item_name: selectedPackageName,
+        customer: { name: customerName, email: customerEmail, phone: customerPhone }
+        // jika ingin pakai enabled_payments, tambahkan dukungan di backend lalu kirim di sini
+      })
+    });
 
-            const paymentDetails = getPaymentDetails(selectedPaymentMethod);
+    const data = await resp.json();
+    if (!resp.ok) throw new Error(data.error || "Gagal membuat transaksi");
 
-            const message = `*HALO, SAYA INGIN MEMESAN*\n\n` +
-                          `*Paket:* ${selectedPackageName}\n` +
-                          `*Harga:* Rp ${formatPrice(selectedPackagePrice)}\n` +
-                          `*Nama:* ${name}\n` +
-                          `*Nomor HP:* ${phone}\n` +
-                          `*Email:* ${email || 'Tidak ada'}\n` +
-                          `*Metode Bayar:* ${selectedPaymentMethod.toUpperCase()}\n` +
-                          `${paymentDetails}\n` +
-                          `Waktu Pesan: ${currentTime}\n\n` +
-                          `*INSTRUKSI PEMBAYARAN:*\n` +
-                          `*1.* Transfer sesuai nominal ke rekening di atas\n` +
-                          `*2.* Kirim foto bukti transfer ke nomor ini\n` +
-                          `*3.* Tunggu konfirmasi dari admin\n` +
-                          `*4.* Pesananmu akan diproses dalam 1x24 jam\n\n`
-            
-            // Open WhatsApp with auto message
-            const whatsappUrl = `https://wa.me/6287777626887?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
-            
-            console.log('✅ Pesan pesanan dikirim ke WhatsApp:', message);
-        }
+    const snapToken = data.token;
 
-        function getPaymentDetails(method) {
-            const paymentInfo = {
-                'dana': 'DANA: 087777626887 A.N: Afdhal Kamaruddin',
-                'gopay': 'GoPay: 087777626887 A.N: Afdhal Kamaruddin',
-                'seabank': 'SeaBank: 901052644893 A.N: Afdhal Kamaruddin',
-                'bri': 'BRI: 508701006629504 A.N: Afdhal Kamaruddin'
-            };
-            return paymentInfo[method] || 'Metode pembayaran tidak dikenal';
-        }
+    window.snap.pay(snapToken, {
+      onSuccess: function(result){  handlePaid(orderId, "success", result); },
+      onPending: function(result){  handlePaid(orderId, "pending", result); },
+      onError:   function(result){  alert("Pembayaran gagal. Coba lagi."); console.error(result); backToForm(); },
+      onClose:   function(){        backToForm(); }
+    });
+  } catch (e) {
+    alert(e.message || "Terjadi kesalahan membuat transaksi");
+    backToForm();
+  }
+}
+</script>
 
-        function saveOrderToHistory(name, phone, email) {
-            const orders = JSON.parse(localStorage.getItem('orders') || '[]');
-            const newOrder = {
-                id: 'ORD-' + Date.now(),
-                customerName: name,
-                customerPhone: phone,
-                customerEmail: email,
-                packageName: selectedPackageName,
-                packagePrice: selectedPackagePrice,
-                paymentMethod: selectedPaymentMethod,
-                timestamp: new Date().toISOString(),
-                status: 'pending'
-            };
-            
-            orders.unshift(newOrder);
-            
-            // Keep only last 10 orders
-            if (orders.length > 10) {
-                orders.splice(10);
-            }
-            
-            localStorage.setItem('orders', JSON.stringify(orders));
-        }
+<script>
+function backToForm() {
+  document.getElementById('loadingSection').style.display = 'none';
+  document.getElementById('paymentForm').style.display  = 'block';
+}
 
-        function displayOrderHistory() {
-            const orders = JSON.parse(localStorage.getItem('orders') || '[]');
-            const container = document.getElementById('orderHistoryContainer');
-            
-            if (orders.length === 0) {
-                container.innerHTML = '<p style="text-align: center; color: #64748b;">Belum ada pesanan</p>';
-                return;
-            }
-            
-            container.innerHTML = orders.map(order => `
-                <div class="order-item">
-                    <div class="order-header">
-                        <span class="order-id">${order.id}</span>
-                        <span class="order-status status-${order.status}">
-                            ${order.status === 'pending' ? '⏳ Menunggu Konfirmasi' : '✅ Selesai'}
-                        </span>
-                    </div>
-                    <div style="margin-bottom: 10px;">
-                        <strong>${order.packageName}</strong> - Rp ${formatPrice(order.packagePrice)}
-                    </div>
-                    <div style="font-size: 0.9em; color: #64748b;">
-                        👤 ${order.customerName} | 📱 ${order.customerPhone}<br>
-                        💳 ${order.paymentMethod.toUpperCase()} | 
-                        ⏰ ${new Date(order.timestamp).toLocaleString('id-ID')}
-                    </div>
-                </div>
-            `).join('');
-        }
+function handlePaid(orderId, status, result) {
+  // Sembunyikan loading, tampilkan sukses (UI kamu sudah ada)
+  document.getElementById('loadingSection').style.display = 'none';
+  document.getElementById('successSection').style.display = 'block';
 
-        function clearOrderHistory() {
-            if (confirm('Yakin ingin menghapus semua riwayat pesanan?')) {
-                localStorage.removeItem('orders');
-                displayOrderHistory();
-            }
-        }
+  // Simpan ke riwayat lokal (konsisten dengan fitur kamu)
+  const name  = document.getElementById('customerName').value;
+  const phone = document.getElementById('customerPhone').value;
+  const email = document.getElementById('customerEmail').value;
 
-        function formatPrice(price) {
-            return new Intl.NumberFormat('id-ID').format(price);
-        }
+  const order = {
+    id: orderId,
+    customerName: name,
+    customerPhone: phone,
+    customerEmail: email,
+    packageName: selectedPackageName,
+    packagePrice: selectedPackagePrice,
+    paymentMethod: selectedPaymentMethod,
+    timestamp: new Date().toISOString(),
+    status: status === "success" ? "completed" : "pending"
+  };
 
-        // Event listeners
-        document.getElementById('customerName').addEventListener('input', updatePayButton);
-        document.getElementById('customerPhone').addEventListener('input', updatePayButton);
+  const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+  orders.unshift(order);
+  if (orders.length > 10) orders.splice(10);
+  localStorage.setItem('orders', JSON.stringify(orders));
 
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('paymentModal');
-            
-            if (event.target == modal) {
-                closePaymentModal();
-            }
-        }
+  displayOrderHistory();
 
-        // Phone number formatting
-        document.getElementById('customerPhone').addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\D/g, '');
-            
-            if (value.startsWith('62')) {
-                value = '0' + value.substring(2);
-            }
-            
-            if (value.length > 13) {
-                value = value.substring(0, 13);
-            }
-            
-            this.value = value;
-        });
+  // (Opsional) Kalau tetap mau kirim WA ke admin:
+  // sendOrderToWhatsApp(name, phone, email);
+}
+</script>
 
-        // Initialize page
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeProvinces();
-            displayOrderHistory();
-            
-            // Initialize package animations
-            const packages = document.querySelectorAll('.package');
-            packages.forEach(package => {
-                package.style.opacity = '0';
-                package.style.transform = 'translateY(50px)';
-                package.style.transition = 'all 0.6s ease';
-            });
-            
-            // Animate packages on scroll
-            window.addEventListener('scroll', function() {
-                packages.forEach(package => {
-                    const packageTop = package.getBoundingClientRect().top;
-                    const packageVisible = 150;
-                    
-                    if (packageTop < window.innerHeight - packageVisible) {
-                        package.style.opacity = '1';
-                        package.style.transform = 'translateY(0)';
-                    }
-                });
-            });
-            
-            // Trigger initial animation
-            setTimeout(() => {
-                packages.forEach(package => {
-                    package.style.opacity = '1';
-                    package.style.transform = 'translateY(0)';
-                });
-            }, 500);
-        });
-
-        // Auto-refresh order history every 30 seconds
-        setInterval(displayOrderHistory, 30000);
-    </script>
 <script>
 function showSection(id) {
     const sections = ['intro', 'beli-paket', 'produk-digital', 'cek-area', 'riwayat', 'snk'];
