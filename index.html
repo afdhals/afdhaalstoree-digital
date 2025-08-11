@@ -151,6 +151,44 @@
        #pd-count{margin-left:8px;font-size:.9em;color:#64748b}
        .package[hidden]{display:none!important}
 
+       /* ==== Toolbar kategori di paling atas (horisontal) ==== */
+.pd-filter-wrap{
+  background:#ffffff;
+  border-bottom:1px solid #e2e8f0;
+  padding:8px 12px;
+  margin:0;                 /* nempel paling atas section */
+  overflow-x:auto;          /* scroll horisontal kalau panjang */
+  -webkit-overflow-scrolling: touch;
+}
+
+#pd-filter{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  flex-wrap:nowrap;         /* paksa satu baris */
+  white-space:nowrap;
+}
+
+.filter-chip{
+  border:2px solid #e2e8f0;
+  background:#fff;
+  padding:6px 12px;         /* lebih kecil */
+  border-radius:999px;
+  font-size:.9em;
+  cursor:pointer;
+  transition:.15s;
+}
+.filter-chip:hover{transform:translateY(-1px);box-shadow:0 3px 10px rgba(59,130,246,.18);border-color:#3b82f6}
+.filter-chip.active{background:linear-gradient(135deg,#3b82f6 0%,#8b5cf6 100%);color:#fff;border-color:transparent}
+
+#pd-count{
+  margin-left:12px;
+  font-size:.85em;
+  color:#64748b;
+}
+
+/* pastikan kartu bisa disembunyikan saat difilter */
+.package[hidden]{display:none !important}
 
         .packages {
             display: grid;
@@ -983,15 +1021,17 @@ window.addEventListener("scroll", revealOnScroll);
 </section>
        
 <section id="produk-digital" style="display:none;"><div class="packages">
-       <div class="filter-bar" id="pd-filter">
-  <button class="filter-chip active" data-filter="all">Semua</button>
-  <button class="filter-chip" data-filter="ecourse">Ecourse</button>
-  <button class="filter-chip" data-filter="premium">Akun/App Pro</button>
-  <button class="filter-chip" data-filter="assets">Asset Musik</button>
-  <button class="filter-chip" data-filter="ebook">Ebook</button>
-  <button class="filter-chip" data-filter="prompts">Prompts</button>
-  <button class="filter-chip" data-filter="game">Game</button>
-  <span id="pd-count"></span>
+      <div class="pd-filter-wrap">
+  <div id="pd-filter">
+    <button class="filter-chip active" data-filter="all">Semua</button>
+    <button class="filter-chip" data-filter="ecourse">Ecourse</button>
+    <button class="filter-chip" data-filter="premium">Akun/App Pro</button>
+    <button class="filter-chip" data-filter="assets">Asset Musik</button>
+    <button class="filter-chip" data-filter="ebook">Ebook</button>
+    <button class="filter-chip" data-filter="prompts">Prompts</button>
+    <button class="filter-chip" data-filter="game">Game</button>
+    <span id="pd-count"></span>
+  </div>
 </div>
 
 <!-- Paket 1 -->
