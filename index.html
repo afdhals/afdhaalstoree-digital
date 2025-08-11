@@ -944,16 +944,6 @@ window.addEventListener("scroll", revealOnScroll);
     document.body.classList.toggle('dark-theme');
   }
 
-  function showSection(id) {
-    const sections = document.querySelectorAll("section");
-    sections.forEach(s => s.style.display = "none");
-
-    const target = document.getElementById(id);
-    if (target) {
-      target.style.display = "block";
-    }
-  }
-
   // Tampilkan section 'intro' saat awal
   document.addEventListener("DOMContentLoaded", () => {
     showSection('intro');
@@ -1571,6 +1561,7 @@ window.addEventListener("scroll", revealOnScroll);
             areaResult.style.display = 'block';
             areaResult.scrollIntoView({ behavior: 'smooth' });
         }
+      </script>
 
       <script>
 // ===== 0) Peta Nama Produk -> URL Checkout Lynk (ISI DENGAN PUNYAMU) =====
@@ -1654,6 +1645,38 @@ function saveOrderToHistory(name, phone, email, overrides = {}) {
   localStorage.setItem('orders', JSON.stringify(orders));
 }
 
+function displayOrderHistory() {
+  const container = document.getElementById('orderHistoryContainer');
+  if (!container) return;
+
+  const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+
+  if (orders.length === 0) {
+    container.innerHTML = '<p style="text-align:center;color:#64748b;">Belum ada pesanan</p>';
+  } else {
+    container.innerHTML = orders.map(o => `
+      <div class="order-item">
+        <div class="order-header">
+          <span class="order-id">${o.id}</span>
+          <span class="order-status ${o.status === 'pending' ? 'status-pending' : 'status-completed'}">
+            ${o.status === 'pending' ? '⏳ Menunggu Konfirmasi' : '✅ Selesai'}
+          </span>
+        </div>
+        <div style="margin-bottom:10px;">
+          <strong>${o.packageName}</strong> - Rp ${new Intl.NumberFormat('id-ID').format(o.packagePrice)}
+        </div>
+        <div style="font-size:.9em;color:#64748b;">
+          👤 ${o.customerName} | 📱 ${o.customerPhone}<br>
+          💳 ${String(o.paymentMethod||'lynk').toUpperCase()} |
+          ⏰ ${new Date(o.timestamp).toLocaleString('id-ID')}
+        </div>
+      </div>
+    `).join('');
+  }
+
+  const btn = document.getElementById('clearHistoryBtn') || document.querySelector('.clear-history');
+  if (btn) btn.disabled = orders.length === 0;
+}
 // ===== 4) CLEAR RIWAYAT =====
 function clearOrderHistory() {
   if (!confirm('Yakin ingin menghapus semua riwayat pesanan?')) return;
