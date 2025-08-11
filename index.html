@@ -1076,7 +1076,7 @@ window.addEventListener("scroll", revealOnScroll);
 <div class="area-item">Perluas Komunikasimu Dengan Mengerti Bahasa Inggris!</div>
 </div>
 <div class="package-price">💰 Rp 2.000</div>
-<button class="btn" onclick="openPaymentModal('KELAS PUBLIC SPEAKING', 2000)">Beli Sekarang</button>
+<button class="btn" onclick="openPaymentModal('BAHASA INGGRIS', 2000)">Beli Sekarang</button>
 </div>
 <!-- Paket 9 -->
 <div class="package">
@@ -1553,6 +1553,7 @@ window.addEventListener("scroll", revealOnScroll);
             const areaDescription = document.getElementById('areaDescription');
             const bigQuota = document.getElementById('bigQuota');
             const jumboQuota = document.getElementById('jumboQuota');
+            const miniQuota = document.getElementById('miniQuota');
             
             const quotaInfo = {
                 "Area 1": { big: "36.5GB", jumbo: "50GB", mini: "23,5GB" },
@@ -1602,48 +1603,31 @@ const LYNK_CHECKOUTS = {
   'PAKET XL CIRCLE': 'http://lynk.id/afdhals/0kdnlo38r50j/checkout'
 };
 
-// ===== 1) Klik "Beli Sekarang" -> simpan order -> buka Lynk =====
+// peta LYNK_CHECKOUTS kamu tetap sama
+
 function openPaymentModal(packageName, price) {
-  // set context global (dipakai riwayat)
+  // simpan ke riwayat dulu
   selectedPackageName   = packageName;
   selectedPackagePrice  = price || 0;
   selectedPaymentMethod = 'lynk';
 
-  // buat orderId sekali, simpan ke riwayat
   const orderId = 'ORD-' + Date.now();
-  saveOrderToHistory('—', '—', '', {
-    id: orderId,
-    status: 'pending',               // tetap pending sampai kamu ubah manual
-    note:  'Checkout dibuka via Lynk'
-  });
+  saveOrderToHistory('—','—','', { id: orderId, status: 'pending', note: 'Checkout dibuka via Lynk' });
 
-  // render riwayat sekarang juga
   if (typeof displayOrderHistory === 'function') displayOrderHistory();
 
-  // ambil URL Lynk & tambahkan order_id untuk tracking
   const baseUrl = LYNK_CHECKOUTS[packageName];
-  if (!baseUrl) {
-    alert('Link checkout Lynk belum diset untuk: ' + packageName);
-    return;
-  }
+  if (!baseUrl) { alert('Link checkout Lynk belum diset untuk: ' + packageName); return; }
+
   const finalUrl = addParam(baseUrl, 'order_id', orderId);
-
-  // buka Lynk (tab baru). Jika mau di tab yang sama: location.href = finalUrl;
-  window.open(finalUrl, '_blank', 'noopener');
+  window.open(finalUrl, '_blank', 'noopener'); // atau: location.href = finalUrl;
 }
 
-// ===== 2) Helper: tambah query param aman ke URL =====
 function addParam(url, key, value) {
-  try {
-    const u = new URL(url);
-    u.searchParams.set(key, value);
-    return u.toString();
-  } catch (e) {
-    // fallback kalau URL constructor gagal
-    const sep = url.includes('?') ? '&' : '?';
-    return url + sep + encodeURIComponent(key) + '=' + encodeURIComponent(value);
-  }
+  try { const u = new URL(url); u.searchParams.set(key, value); return u.toString(); }
+  catch { const sep = url.includes('?') ? '&' : '?'; return url + sep + encodeURIComponent(key) + '=' + encodeURIComponent(value); }
 }
+
 
 // ===== 3) Simpan order ke localStorage (mendukung override) =====
 function saveOrderToHistory(name, phone, email, overrides = {}) {
