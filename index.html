@@ -143,36 +143,27 @@
             z-index: 1;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
-       /* ==== Kategori Produk Digital (chips) ==== */
-       .filter-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;margin:20px 40px}
-       .filter-chip{border:2px solid #e2e8f0;background:#fff;padding:8px 14px;border-radius:999px;font-size:.95em;cursor:pointer;transition:.2s}
-       .filter-chip:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(59,130,246,.2);border-color:#3b82f6}
-       .filter-chip.active{background:linear-gradient(135deg,#3b82f6 0%,#8b5cf6 100%);color:#fff;border-color:transparent;box-shadow:0 6px 16px rgba(59,130,246,.35)}
-       #pd-count{margin-left:8px;font-size:.9em;color:#64748b}
-       .package[hidden]{display:none!important}
 
-       /* ==== Toolbar kategori di paling atas (horisontal) ==== */
+       /* Bar kategori di atas grid (bukan item grid) */
 .pd-filter-wrap{
-  background:#ffffff;
-  border-bottom:1px solid #e2e8f0;
-  padding:8px 12px;
-  margin:0;                 /* nempel paling atas section */
-  overflow-x:auto;          /* scroll horisontal kalau panjang */
-  -webkit-overflow-scrolling: touch;
+  width:100%;
+  padding:0 40px 10px;    /* samakan kiri/kanan dengan .packages */
+  margin:0 auto;
 }
 
 #pd-filter{
   display:flex;
   gap:8px;
   align-items:center;
-  flex-wrap:nowrap;         /* paksa satu baris */
-  white-space:nowrap;
+  justify-content:center;
+  flex-wrap:wrap;         /* turun baris kalau kepanjangan */
+  white-space:normal;
 }
 
 .filter-chip{
   border:2px solid #e2e8f0;
   background:#fff;
-  padding:6px 12px;         /* lebih kecil */
+  padding:6px 12px;
   border-radius:999px;
   font-size:.9em;
   cursor:pointer;
@@ -181,14 +172,8 @@
 .filter-chip:hover{transform:translateY(-1px);box-shadow:0 3px 10px rgba(59,130,246,.18);border-color:#3b82f6}
 .filter-chip.active{background:linear-gradient(135deg,#3b82f6 0%,#8b5cf6 100%);color:#fff;border-color:transparent}
 
-#pd-count{
-  margin-left:12px;
-  font-size:.85em;
-  color:#64748b;
-}
-
-/* pastikan kartu bisa disembunyikan saat difilter */
-.package[hidden]{display:none !important}
+/* tetap: sembunyikan kartu saat difilter */
+.package[hidden]{display:none!important}
 
         .packages {
             display: grid;
@@ -1021,18 +1006,21 @@ window.addEventListener("scroll", revealOnScroll);
 </section>
        
 <section id="produk-digital" style="display:none;"><div class="packages">
-      <div class="pd-filter-wrap">
-  <div id="pd-filter">
-    <button class="filter-chip active" data-filter="all">Semua</button>
-    <button class="filter-chip" data-filter="ecourse">Ecourse</button>
-    <button class="filter-chip" data-filter="premium">Akun/App Pro</button>
-    <button class="filter-chip" data-filter="assets">Asset Musik</button>
-    <button class="filter-chip" data-filter="ebook">Ebook</button>
-    <button class="filter-chip" data-filter="prompts">Prompts</button>
-    <button class="filter-chip" data-filter="game">Game</button>
-    <span id="pd-count"></span>
+   <section id="produk-digital" style="display:none;">
+
+  <!-- ⬇️ BAR KATEGORI – DI ATAS GRID -->
+  <div class="pd-filter-wrap">
+    <div id="pd-filter">
+      <button class="filter-chip active" data-filter="all">Semua</button>
+      <button class="filter-chip" data-filter="ecourse">Ecourse</button>
+      <button class="filter-chip" data-filter="premium">Akun/App Pro</button>
+      <button class="filter-chip" data-filter="assets">Asset Musik</button>
+      <button class="filter-chip" data-filter="ebook">Ebook</button>
+      <button class="filter-chip" data-filter="prompts">Prompts</button>
+      <button class="filter-chip" data-filter="game">Game</button>
+      <span id="pd-count"></span>
+    </div>
   </div>
-</div>
 
 <!-- Paket 1 -->
 <div class="package">
