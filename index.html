@@ -143,6 +143,14 @@
             z-index: 1;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
+       /* ==== Kategori Produk Digital (chips) ==== */
+       .filter-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;margin:20px 40px}
+       .filter-chip{border:2px solid #e2e8f0;background:#fff;padding:8px 14px;border-radius:999px;font-size:.95em;cursor:pointer;transition:.2s}
+       .filter-chip:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(59,130,246,.2);border-color:#3b82f6}
+       .filter-chip.active{background:linear-gradient(135deg,#3b82f6 0%,#8b5cf6 100%);color:#fff;border-color:transparent;box-shadow:0 6px 16px rgba(59,130,246,.35)}
+       #pd-count{margin-left:8px;font-size:.9em;color:#64748b}
+       .package[hidden]{display:none!important}
+
 
         .packages {
             display: grid;
@@ -975,6 +983,17 @@ window.addEventListener("scroll", revealOnScroll);
 </section>
        
 <section id="produk-digital" style="display:none;"><div class="packages">
+       <div class="filter-bar" id="pd-filter">
+  <button class="filter-chip active" data-filter="all">Semua</button>
+  <button class="filter-chip" data-filter="ecourse">Ecourse</button>
+  <button class="filter-chip" data-filter="premium">Akun/App Pro</button>
+  <button class="filter-chip" data-filter="assets">Asset Musik</button>
+  <button class="filter-chip" data-filter="ebook">Ebook</button>
+  <button class="filter-chip" data-filter="prompts">Prompts</button>
+  <button class="filter-chip" data-filter="game">Game</button>
+  <span id="pd-count"></span>
+</div>
+
 <!-- Paket 1 -->
 <div class="package">
 <div class="package-title">PROMO MERDEKA - PAKET DIGITAL</div>
@@ -1723,6 +1742,94 @@ function showSection(id) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
+       
+       <script>
+// Pemetaan judul -> kategori (yang tidak terdaftar akan di-infer otomatis)
+const CATEGORY_MAP = {
+  'PROMO MERDEKA - PAKET DIGITAL': 'bundle',
+  'PAKET DIGITAL HEMAT': 'bundle',
+  'KELAS HACK YOUTOBE': 'ecourse',
+  'KELAS CYBER SECURITY': 'ecourse',
+  '70.000+ Prompts ChatGPT': 'prompts',
+  'MASTERKEY FOREX': 'ecourse',
+  'CRYPTO TRADING PSYCHOLOGY': 'ecourse',
+  'KELAS PUBLIC SPEAKING': 'ecourse',
+  'BAHASA INGGRIS': 'ecourse',
+  '🎵BACKSOUND MUSIK CONTENT CREATOR': 'assets',
+  'Aplikasi Nonton Film VIP': 'premium',
+  'PAKET EBOOK': 'ebook',
+  'GAME NARUTO STORM 4': 'game',
+  'AKUN GEMINI PRO': 'premium',
+  '🧙20 ECOURSE - DIGITAL MARKETING': 'ecourse',
+  'DIGITAL MARKETING': 'ecourse',
+  '🧙ECOURSE - MAHIR MICROSOFT': 'ecourse',
+  'MAHIR MICROSOFT': 'ecourse',
+  'AKUN CAPCUT PRO': 'premium',
+  'CAPCUT PRO': 'premium',
+  'CANVA PRO': 'premium',
+  'AKUN ALIGHT MOTION PRO': 'premium',
+  'ALIGHT MOTION PRO': 'premium',
+  'AKUN CHAT GPT PRO': 'premium',
+  'CHAT GPT PRO': 'premium'
+};
+
+function inferCategoryFromTitle(t){
+  const s = (t||'').toLowerCase();
+  if (s.includes('ecourse') || s.includes('kelas')) return 'ecourse';
+  if (s.includes('akun') || s.includes('pro') || s.includes('vip') || s.includes('app')) return 'premium';
+  if (s.includes('ebook')) return 'ebook';
+  if (s.includes('prompt')) return 'prompts';
+  if (s.includes('backsound') || s.includes('musik') || s.includes('sound')) return 'assets';
+  if (s.includes('game') || s.includes('naruto')) return 'game';
+  if (s.includes('paket') || s.includes('promo')) return 'bundle';
+  return 'lainnya';
+}
+
+function assignCategoriesPD(){
+  const section = document.getElementById('produk-digital');
+  if (!section) return;
+  section.querySelectorAll('.package').forEach(card=>{
+    const title = card.querySelector('.package-title')?.textContent.trim() || '';
+    const cat = CATEGORY_MAP[title] || inferCategoryFromTitle(title);
+    card.dataset.category = cat;
+  });
+}
+
+function filterProductsPD(cat){
+  const section = document.getElementById('produk-digital');
+  if (!section) return;
+  const cards = section.querySelectorAll('.package');
+  let visible = 0;
+  cards.forEach(card=>{
+    const show = (cat==='all') || (card.dataset.category===cat);
+    card.hidden = !show;
+    if (show) visible++;
+  });
+  // aktifkan chip
+  document.querySelectorAll('#pd-filter .filter-chip').forEach(b=>{
+    b.classList.toggle('active', b.dataset.filter===cat);
+  });
+  const c = document.getElementById('pd-count');
+  if (c) c.textContent = `Menampilkan ${visible} produk`;
+}
+
+function setupFilterPD(){
+  const bar = document.getElementById('pd-filter');
+  if (!bar) return;
+  bar.addEventListener('click', e=>{
+    const btn = e.target.closest('.filter-chip');
+    if (!btn) return;
+    filterProductsPD(btn.dataset.filter);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  assignCategoriesPD();
+  setupFilterPD();
+  filterProductsPD('all'); // default
+});
+</script>
+
 <style>
     .snowflake {
       position: fixed;
