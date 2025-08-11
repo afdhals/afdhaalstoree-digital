@@ -7,8 +7,6 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/afdhals/afdhaalstoree-digital/main/logo_shoping.png">
 <link rel="icon" href="https://raw.githubusercontent.com/afdhals/afdhaalstoree-digital/main/logo_shoping.png" type="image/png">
 <title>Toko Digital</title>
-<script src="https://app.sandbox.midtrans.com/snap/snap.js"
-  data-client-key="SB-Mid-client-Lfr0HGl02VGLqqOk"></script>
 <style>
         * {
             margin: 0;
@@ -1237,8 +1235,8 @@ window.addEventListener("scroll", revealOnScroll);
 <span class="area-quota">36,5GB</span>
 </div>
 </div>
-<div class="package-price">💰 Rp 62.000</div>
-<button class="btn" onclick="openPaymentModal('PAKET AKRAB XL (BIG)', 62000)">Beli Sekarang</button>
+<div class="package-price">💰 Rp 65.000</div>
+<button class="btn" onclick="openPaymentModal('PAKET AKRAB XL (BIG)', 65000)">Beli Sekarang</button>
 </div>
 <!-- Paket JUMBO -->
 <div class="package">
@@ -1262,8 +1260,8 @@ window.addEventListener("scroll", revealOnScroll);
 <span class="area-quota">50GB</span>
 </div>
 </div>
-<div class="package-price">💰 Rp 80.000</div>
-<button class="btn" onclick="openPaymentModal('PAKET AKRAB XXL (JUMBO)', 80000)">Beli Sekarang</button>
+<div class="package-price">💰 Rp 85.000</div>
+<button class="btn" onclick="openPaymentModal('PAKET AKRAB XXL (JUMBO)', 85000)">Beli Sekarang</button>
 </div>
 <!-- Paket MINI-->
 <div class="package">
@@ -1297,10 +1295,10 @@ window.addEventListener("scroll", revealOnScroll);
 <div class="package-details">
 <div class="area-item">
 <span class="area-name">SEMUA AREA</span>
-<span class="area-quota">25GB</span>
+<span class="area-quota">10GB</span>
 </div>
-<div class="package-price">💰 Rp 25.000</div>
-<button class="btn" onclick="openPaymentModal('PAKET XL CIRCLE', 25000)">Beli Sekarang</button>
+<div class="package-price">💰 Rp 18.000</div>
+<button class="btn" onclick="openPaymentModal('PAKET XL CIRCLE', 18000)">Beli Sekarang</button>
 </div>
 </div><div class="payment-section">
 <h3>💳 Metode Pembayaran</h3>
@@ -1322,11 +1320,11 @@ window.addEventListener("scroll", revealOnScroll);
 </div>
 </div>
 <!-- Payment Instruction Section -->
-<div class="payment-instruction">
+<div class="payment-instruction" style="display:none;">
 <h4>📸 Kirim Bukti Pembayaran</h4>
-<p style="margin-bottom: 15px;">Setelah transfer, kirim foto bukti pembayaran ke:</p>
-<div class="whatsapp-number">📱 087777626887</div>
-<div class="instruction-steps">
+<p style="display:none;">Setelah transfer, kirim foto bukti pembayaran ke:</p>
+<div class="whatsapp-number" style="display:none;">📱 087777626887</div>
+<div class="instruction-steps" style="display:none;">
 <ol>
 <li><strong>Transfer</strong> sesuai nominal paket yang dipilih</li>
 <li><strong>Screenshot</strong> atau foto bukti transfer</li>
@@ -1335,7 +1333,7 @@ window.addEventListener("scroll", revealOnScroll);
 <li><strong>Tunggu konfirmasi</strong> dari admin (maks 1x24 jam)</li>
 </ol>
 </div>
-<p style="color: #64748b; font-style: italic; margin-top: 15px;">
+<p style="display:none;">
                     💡 Pastikan nomor HP sudah terdaftar di jaringan XL/Axis sebelum pembelian
                 </p>
 </div>
@@ -1391,81 +1389,6 @@ window.addEventListener("scroll", revealOnScroll);
 <button class="clear-history" onclick="clearOrderHistory()">🗑️ Hapus Riwayat</button>
 </div>
 </div></section>
-<!-- Payment Modal -->
-<div class="modal" id="paymentModal">
-<div class="modal-content">
-<div class="modal-header">
-<span class="close" onclick="closePaymentModal()">×</span>
-<h2>💳 Form Pemesanan</h2>
-</div>
-<div class="modal-body">
-<div id="paymentForm">
-<div class="order-summary">
-<h3>📋 Ringkasan Pesanan</h3>
-<div class="summary-row">
-<span>Paket:</span>
-<span id="selectedPackage"></span>
-</div>
-<div class="summary-row summary-total">
-<span>Total:</span>
-<span id="totalPrice"></span>
-</div>
-</div>
-<div class="form-group">
-<label for="customerName">Nama *</label>
-<input id="customerName" placeholder="Masukkan nama lengkap" required="" type="text"/>
-</div>
-<div class="form-group">
-<label for="customerPhone">Nomor Tujuan *</label>
-<input id="customerPhone" placeholder="08xxxxxxxxxx" required="" type="tel"/>
-</div>
-<div class="form-group">
-<label for="customerEmail">Email (Opsional)</label>
-<input id="customerEmail" placeholder="email@example.com" type="email"/>
-</div>
-<div class="form-group">
-<label>Pilih Metode Pembayaran *</label>
-<div class="payment-methods">
-<div class="payment-option" data-method="dana" onclick="selectPayment('dana')">
-<div style="font-size: 2em;">💰</div>
-<div>DANA</div>
-</div>
-<div class="payment-option" data-method="gopay" onclick="selectPayment('gopay')">
-<div style="font-size: 2em;">🟢</div>
-<div>GoPay</div>
-</div>
-<div class="payment-option" data-method="seabank" onclick="selectPayment('seabank')">
-<div style="font-size: 2em;">🏦</div>
-<div>SeaBank</div>
-</div>
-<div class="payment-option" data-method="bri" onclick="selectPayment('bri')">
-<div style="font-size: 2em;">🏛️</div>
-<div>BRI</div>
-</div>
-</div>
-</div>
-<button class="payment-btn" disabled="" id="payBtn" onclick="processPayment()">
-                        🔒 Pesan Sekarang
-                    </button>
-</div>
-<div class="loading" id="loadingSection">
-<div class="spinner"></div>
-<h3>Mengirim Pesanan...</h3>
-<p>Mohon tunggu, jangan tutup halaman ini</p>
-</div>
-<div class="success-message" id="successSection">
-<div class="success-icon">✅</div>
-<h3>Pesanan Berhasil dibuat!</h3>
-<p>Lanjut kirim ke WhatsApp admin dan lakukan pembayaran.</p>
-<p><strong>087777626887</strong></p>
-<button class="btn" onclick="closePaymentModal()" style="margin-top: 20px;">Tutup</button>
-</div>
-</div>
-</div>
-</div>
-<script>
-  const BACKEND_BASE = "https://api.afdhaalstoree.my.id";
-</script>
 <script>
         let selectedPackageName = '';
         let selectedPackagePrice = 0;
@@ -1648,168 +1571,170 @@ window.addEventListener("scroll", revealOnScroll);
             areaResult.scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Payment Modal Functions
-        function openPaymentModal(packageName, price) {
-            selectedPackageName = packageName;
-            selectedPackagePrice = price;
-            
-            document.getElementById('selectedPackage').textContent = packageName;
-            document.getElementById('totalPrice').textContent = 'Rp ' + formatPrice(price);
-            document.getElementById('paymentModal').style.display = 'block';
-            
-            // Reset form
-            resetPaymentForm();
-        }
+      <script>
+// ===== 0) Peta Nama Produk -> URL Checkout Lynk (ISI DENGAN PUNYAMU) =====
+const LYNK_CHECKOUTS = {
+  // --- PRODUK DIGITAL ---
+  'PAKET DIGITAL HEMAT': 'https://lynk.id/afdhals/rnpvrvq0vkr9/checkout?token=cGFyYW1zPSU1QiU1RCZiaWRfcHJpY2U9MCZxdHlfcHJvZD0x',
+  'KELAS HACK YOUTOBE': 'http://lynk.id/afdhals/jkowqn70o81q/checkout',
+  'KELAS CYBER SECURITY': 'http://lynk.id/afdhals/1nevox48x1do/checkout',
+  '70.000+ Prompts ChatGPT': 'http://lynk.id/afdhals/d3oe841lpwqk/checkout',
+  'MASTERKEY FOREX': 'http://lynk.id/afdhals/2wdyl7m52kjj/checkout',
+  'CRYPTO TRADING PSYCHOLOGY': 'http://lynk.id/afdhals/evo0mxg10ply/checkout',
+  'KELAS PUBLIC SPEAKING': 'http://lynk.id/afdhals/0e3ojn6r1m70/checkout',
+  'BAHASA INGGRIS': 'http://lynk.id/afdhals/wv1yplr6r182/checkout',
+  'BACKSOUND MUSIK': 'http://lynk.id/afdhals/33965p8k50nd/checkout',
+  'Aplikasi Nonton Film VIP': 'http://lynk.id/afdhals/65zpokq95xm0/checkout',
+  'PAKET EBOOK': 'http://lynk.id/afdhals/vl1dzv8kl15o/checkout',
+  'GAME NARUTO STORM 4': 'http://lynk.id/afdhals/pv1q9k0d3z9d/checkout',
+  'AKUN GEMINI PRO': 'https://lynk.id/afdhals/xq18d6k5e10k/checkout?token=cGFyYW1zPSU1QiU1RCZiaWRfcHJpY2U9MCZxdHlfcHJvZD0x',
+  'DIGITAL MARKETING': 'http://lynk.id/afdhals/73wkv92wg2lo/checkout',
+  'MAHIR MICROSOFT': 'http://lynk.id/afdhals/eqonvjlyjxg4/checkout',
+  'CAPCUT PRO': 'http://lynk.id/afdhals/yr19pvyjzvyr/checkout',
+  'CANVA PRO': 'http://lynk.id/afdhals/q61x2yoor0wr/checkout',
+  'ALIGHT MOTION PRO': 'http://lynk.id/afdhals/jrokz31rwjn3/checkout',
+  'CHAT GPT PRO': 'https://lynk.id/afdhals/3vklqg2pmgzp/checkout?token=cGFyYW1zPSU1QiU1RCZiaWRfcHJpY2U9MCZxdHlfcHJvZD0x',
 
-        function closePaymentModal() {
-            document.getElementById('paymentModal').style.display = 'none';
-            resetPaymentForm();
-        }
+  // --- PAKET DATA ---
+  'PAKET AKRAB XL (BIG)': 'http://lynk.id/afdhals/31nx8j14w622/checkout',
+  'PAKET AKRAB XXL (JUMBO)': 'http://lynk.id/afdhals/pdp80l14nq45/checkout',
+  'PAKET AKRAB L (MINI)': 'http://lynk.id/afdhals/m48geyv1grzl/checkout',
+  'PAKET XL CIRCLE': 'http://lynk.id/afdhals/0kdnlo38r50j/checkout'
+};
 
-        function resetPaymentForm() {
-            document.getElementById('paymentForm').style.display = 'block';
-            document.getElementById('loadingSection').style.display = 'none';
-            document.getElementById('successSection').style.display = 'none';
-            
-            // Clear form
-            document.getElementById('customerName').value = '';
-            document.getElementById('customerPhone').value = '';
-            document.getElementById('customerEmail').value = '';
-            
-            // Reset payment selection
-            document.querySelectorAll('.payment-option').forEach(option => {
-                option.classList.remove('selected');
-            });
-            selectedPaymentMethod = '';
-            updatePayButton();
-        }
+// ===== 1) Klik "Beli Sekarang" -> simpan order -> buka Lynk =====
+function openPaymentModal(packageName, price) {
+  // set context global (dipakai riwayat)
+  selectedPackageName   = packageName;
+  selectedPackagePrice  = price || 0;
+  selectedPaymentMethod = 'lynk';
 
-        function selectPayment(method) {
-            selectedPaymentMethod = method;
-            
-            // Remove previous selection
-            document.querySelectorAll('.payment-option').forEach(option => {
-                option.classList.remove('selected');
-            });
-            
-            // Add selection to clicked option
-            document.querySelector(`[data-method="${method}"]`).classList.add('selected');
-            
-            updatePayButton();
-        }
+  // buat orderId sekali, simpan ke riwayat
+  const orderId = 'ORD-' + Date.now();
+  saveOrderToHistory('—', '—', '', {
+    id: orderId,
+    status: 'pending',               // tetap pending sampai kamu ubah manual
+    note:  'Checkout dibuka via Lynk'
+  });
 
-        function updatePayButton() {
-            const name = document.getElementById('customerName').value;
-            const phone = document.getElementById('customerPhone').value;
-            const payBtn = document.getElementById('payBtn');
-            
-            if (name && phone && selectedPaymentMethod) {
-                payBtn.disabled = false;
-                payBtn.textContent = `💳 Pesan ${formatPrice(selectedPackagePrice)} via ${selectedPaymentMethod.toUpperCase()}`;
-            } else {
-                payBtn.disabled = true;
-                payBtn.textContent = '🔒 Lengkapi Data Terlebih Dahulu';
-            }
-        }
-       
-async function processPayment() {
-  const customerName  = document.getElementById('customerName').value;
-  const customerPhone = document.getElementById('customerPhone').value;
-  const customerEmail = document.getElementById('customerEmail').value || '';
+  // render riwayat sekarang juga
+  if (typeof displayOrderHistory === 'function') displayOrderHistory();
 
-  if (!customerName || !customerPhone || !selectedPaymentMethod) {
-    alert('Mohon lengkapi semua data yang diperlukan!');
+  // ambil URL Lynk & tambahkan order_id untuk tracking
+  const baseUrl = LYNK_CHECKOUTS[packageName];
+  if (!baseUrl) {
+    alert('Link checkout Lynk belum diset untuk: ' + packageName);
     return;
   }
+  const finalUrl = addParam(baseUrl, 'order_id', orderId);
 
-  // Tampilkan loading (UI kamu sudah ada)
-  document.getElementById('paymentForm').style.display = 'none';
-  document.getElementById('loadingSection').style.display = 'block';
+  // buka Lynk (tab baru). Jika mau di tab yang sama: location.href = finalUrl;
+  window.open(finalUrl, '_blank', 'noopener');
+}
 
-  // ID unik untuk order
-  const orderId = `INV-${Date.now()}`;
-
-  // (opsional) mapping metode yang dipilih user -> enabled_payments Midtrans
-  const paymentMap = {
-    dana:    ["gopay"],     // DANA tidak langsung; arahkan ke GoPay/QRIS sesuai preferensi
-    gopay:   ["gopay"],
-    seabank: ["bank_transfer"], // tidak spesifik SeaBank; pakai VA umum/QRIS
-    bri:     ["bri_va"]     // langsung BRI VA
-    // qris: ["qris"]
-  };
-  const enabled_payments = paymentMap[selectedPaymentMethod] || undefined;
-
+// ===== 2) Helper: tambah query param aman ke URL =====
+function addParam(url, key, value) {
   try {
-    const resp = await fetch(`${BACKEND_BASE}/create-transaction`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        order_id: orderId,
-        gross_amount: selectedPackagePrice,
-        item_name: selectedPackageName,
-        customer: { name: customerName, email: customerEmail, phone: customerPhone }
-        // jika ingin pakai enabled_payments, tambahkan dukungan di backend lalu kirim di sini
-      })
-    });
-
-    const data = await resp.json();
-    if (!resp.ok) throw new Error(data.error || "Gagal membuat transaksi");
-
-    const snapToken = data.token;
-
-    window.snap.pay(snapToken, {
-      onSuccess: function(result){  handlePaid(orderId, "success", result); },
-      onPending: function(result){  handlePaid(orderId, "pending", result); },
-      onError:   function(result){  alert("Pembayaran gagal. Coba lagi."); console.error(result); backToForm(); },
-      onClose:   function(){        backToForm(); }
-    });
+    const u = new URL(url);
+    u.searchParams.set(key, value);
+    return u.toString();
   } catch (e) {
-    alert(e.message || "Terjadi kesalahan membuat transaksi");
-    backToForm();
+    // fallback kalau URL constructor gagal
+    const sep = url.includes('?') ? '&' : '?';
+    return url + sep + encodeURIComponent(key) + '=' + encodeURIComponent(value);
   }
 }
-</script>
 
-<script>
-function backToForm() {
-  document.getElementById('loadingSection').style.display = 'none';
-  document.getElementById('paymentForm').style.display  = 'block';
-}
-
-function handlePaid(orderId, status, result) {
-  // Sembunyikan loading, tampilkan sukses (UI kamu sudah ada)
-  document.getElementById('loadingSection').style.display = 'none';
-  document.getElementById('successSection').style.display = 'block';
-
-  // Simpan ke riwayat lokal (konsisten dengan fitur kamu)
-  const name  = document.getElementById('customerName').value;
-  const phone = document.getElementById('customerPhone').value;
-  const email = document.getElementById('customerEmail').value;
-
-  const order = {
-    id: orderId,
-    customerName: name,
-    customerPhone: phone,
-    customerEmail: email,
-    packageName: selectedPackageName,
-    packagePrice: selectedPackagePrice,
-    paymentMethod: selectedPaymentMethod,
-    timestamp: new Date().toISOString(),
-    status: status === "success" ? "completed" : "pending"
-  };
-
+// ===== 3) Simpan order ke localStorage (mendukung override) =====
+function saveOrderToHistory(name, phone, email, overrides = {}) {
   const orders = JSON.parse(localStorage.getItem('orders') || '[]');
-  orders.unshift(order);
-  if (orders.length > 10) orders.splice(10);
+
+  const newOrder = Object.assign({
+    id: 'ORD-' + Date.now(),
+    customerName: (name  && String(name).trim())  || '—',
+    customerPhone:(phone && String(phone).trim()) || '—',
+    customerEmail:(email && String(email).trim()) || '',
+    packageName:  (typeof selectedPackageName  !== 'undefined' ? selectedPackageName  : '(tidak diketahui)'),
+    packagePrice: (typeof selectedPackagePrice !== 'undefined' ? selectedPackagePrice : 0),
+    paymentMethod:(typeof selectedPaymentMethod!== 'undefined' ? selectedPaymentMethod: 'lynk'),
+    timestamp:    new Date().toISOString(),
+    status:       'pending' // pending / completed
+  }, overrides);
+
+  // masukkan paling atas
+  orders.unshift(newOrder);
+
+  // batasi panjang riwayat biar ringan
+  if (orders.length > 50) orders.splice(50);
+
   localStorage.setItem('orders', JSON.stringify(orders));
-
-  displayOrderHistory();
-
-  // (Opsional) Kalau tetap mau kirim WA ke admin:
-  // sendOrderToWhatsApp(name, phone, email);
 }
-</script>
 
+// ===== 4) CLEAR RIWAYAT =====
+function clearOrderHistory() {
+  if (!confirm('Yakin ingin menghapus semua riwayat pesanan?')) return;
+
+  // Hapus data di localStorage
+  localStorage.removeItem('orders');
+
+  // Refresh tampilan riwayat jika fungsi tersedia
+  if (typeof displayOrderHistory === 'function') {
+    displayOrderHistory();
+  } else {
+    // Fallback jika container ada
+    const container = document.getElementById('orderHistoryContainer');
+    if (container) {
+      container.innerHTML = '<p style="text-align:center;color:#64748b;">Belum ada pesanan</p>';
+    }
+  }
+
+  // Nonaktifkan tombol hapus bila ada
+  const btn = document.getElementById('clearHistoryBtn') || document.querySelector('.clear-history');
+  if (btn) btn.disabled = true;
+
+  // Update counter bila ada
+  const counter = document.getElementById('orderCount');
+  if (counter) counter.textContent = 'Belum ada pesanan';
+}
+  
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeProvinces();
+            displayOrderHistory();
+            
+            // Initialize package animations
+            const packages = document.querySelectorAll('.package');
+            packages.forEach(package => {
+                package.style.opacity = '0';
+                package.style.transform = 'translateY(50px)';
+                package.style.transition = 'all 0.6s ease';
+            });
+            
+            // Animate packages on scroll
+            window.addEventListener('scroll', function() {
+                packages.forEach(package => {
+                    const packageTop = package.getBoundingClientRect().top;
+                    const packageVisible = 150;
+                    
+                    if (packageTop < window.innerHeight - packageVisible) {
+                        package.style.opacity = '1';
+                        package.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+            
+            // Trigger initial animation
+            setTimeout(() => {
+                packages.forEach(package => {
+                    package.style.opacity = '1';
+                    package.style.transform = 'translateY(0)';
+                });
+            }, 500);
+        });
+
+        // Auto-refresh order history every 30 seconds
+        setInterval(displayOrderHistory, 30000);
+    </script>
 <script>
 function showSection(id) {
     const sections = ['intro', 'beli-paket', 'produk-digital', 'cek-area', 'riwayat', 'snk'];
