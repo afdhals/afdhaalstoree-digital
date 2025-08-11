@@ -1005,8 +1005,7 @@ window.addEventListener("scroll", revealOnScroll);
   </p>
 </section>
        
-<section id="produk-digital" style="display:none;"><div class="packages">
-   <section id="produk-digital" style="display:none;">
+<section id="produk-digital" style="display:none;">
 
   <!-- ⬇️ BAR KATEGORI – DI ATAS GRID -->
   <div class="pd-filter-wrap">
@@ -1021,7 +1020,8 @@ window.addEventListener("scroll", revealOnScroll);
       <span id="pd-count"></span>
     </div>
   </div>
- <!-- GRID PRODUK -->
+
+  <!-- GRID PRODUK -->
   <div class="packages">
     <!-- kartu-kartu produk kamu di sini -->
 <!-- Paket 1 -->
@@ -1854,9 +1854,11 @@ function setupFilterPD(){
 }
 
 document.addEventListener('DOMContentLoaded', ()=>{
-  assignCategoriesPD();
-  setupFilterPD();
-  filterProductsPD('all'); // default
+  assignCategoriesPD?.();
+  setupFilterPD?.();
+  filterProductsPD?.('all');  // default tampil semua
+  initializeProvinces?.();
+  displayOrderHistory?.();
 });
 </script>
 
