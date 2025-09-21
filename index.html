@@ -934,11 +934,42 @@ section{ scroll-margin-top: calc(var(--topbar-h) + 12px); }
   z-index: 1100;                     /* di atas header */
   /* sisanya tetap sesuai punyamu */
 }
+    .pro-announce {
+  background: #0f172a;
+  color: #f8fafc;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 14px;
+  padding: 8px 12px;
+  position: relative;
+}
+
+.marquee {
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 100%; /* mulai dari kanan */
+  animation: marquee 15s linear infinite;
+}
+
+.marquee span {
+  padding-right: 100%; /* jarak antar loop */
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
 
     </style>
 </head>
 <body style="margin:0; font-family: 'Poppins', sans-serif; background:#f8fafc; color:#1e293b; transition: all 0.3s ease;">
-      <div class="pro-announce">TOKO DIGITAL TERPERCAYA</div>
+    <div class="pro-announce">
+  <div class="marquee">
+    <span>TOKO DIGITAL TERPERCAYA - TUTORIAL: Pilih Produk → Beli Sekarang → Isi Data → Pilih Metode Pembayaran → Bayar → Klik Link → Konfirmasi → Pesanan selesai ✅
+</span>
+  </div>
+</div>
+
    <div class="topbar" id="topbar">
 
   <header class="pro-header">
