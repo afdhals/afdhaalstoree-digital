@@ -910,11 +910,35 @@ body {
   background: var(--bg);
   border-bottom: 1px solid var(--line);
 }
+    :root{ --topbar-h: 120px; }          /* default fallback */
+
+.topbar{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+}
+
+/* Dorong konten turun setinggi topbar */
+body{ padding-top: var(--topbar-h); }
+
+/* Biar hash-link (#beli-paket, dll.) tidak ketutup header */
+section{ scroll-margin-top: calc(var(--topbar-h) + 12px); }
+
+/* Drawer mobile jangan nindih topbar */
+#menu{
+  position: fixed;
+  right: 0;
+  top: var(--topbar-h);
+  height: calc(100dvh - var(--topbar-h));
+  width: min(88vw, 360px);
+  z-index: 1100;                     /* di atas header */
+  /* sisanya tetap sesuai punyamu */
+}
 
     </style>
 </head>
 <body style="margin:0; font-family: 'Poppins', sans-serif; background:#f8fafc; color:#1e293b; transition: all 0.3s ease;">
-   <div class="topbar">
+   <div class="topbar" id="topbar">
   <div class="pro-announce">TOKO DIGITAL TERPERCAYA</div>
 
   <header class="pro-header">
@@ -2033,6 +2057,18 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
   window.addEventListener('hashchange', handleHashRoute);
   document.addEventListener('DOMContentLoaded', handleHashRoute);
+</script>
+    <script>
+  function setTopbarHeight(){
+    const el = document.getElementById('topbar');
+    if(!el) return;
+    const h = el.offsetHeight; // termasuk announcement + header
+    document.documentElement.style.setProperty('--topbar-h', h + 'px');
+  }
+  window.addEventListener('load', setTopbarHeight);
+  window.addEventListener('resize', setTopbarHeight);
+  // kalau kamu pakai font web (Google Fonts), ukur ulang setelah font siap
+  document.fonts?.ready?.then(setTopbarHeight);
 </script>
     
 </body>
