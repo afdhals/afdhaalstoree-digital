@@ -894,32 +894,32 @@ img[loading="lazy"]{content-visibility:auto}
   <div class="pro-container pro-nav">
     <div class="pro-brand">AFDHAL STORE</div>
 
-    <!-- Desktop nav -->
-    <nav class="pro-navlist" aria-label="Main">
-      <a href="#" onclick="showSection('intro')">Home</a>
-      <a href="#" onclick="showSection('beli-paket')">Paket XL-AXIS</a>
-      <a href="#" onclick="showSection('produk-digital')">Produk Digital</a>
-      <a href="#" onclick="showSection('cek-area')">Cek Area Akrab</a>
-      <a href="#" onclick="showSection('riwayat')">Riwayat</a>
-      <a href="#" onclick="showSection('snk')">S&K</a>
-    </nav>
+ <!-- Desktop nav -->
+<nav class="pro-navlist" aria-label="Main">
+  <a href="#intro">Home</a>
+  <a href="#beli-paket">Paket XL-AXIS</a>
+  <a href="#produk-digital">Produk Digital</a>
+  <a href="#cek-area">Cek Area Akrab</a>
+  <a href="#riwayat">Riwayat</a>
+  <a href="#snk">S&K</a>
+</nav>
+
+<!-- Mobile -->
+<nav id="menu" aria-label="Mobile">
+  <a href="#intro"          onclick="toggleMenu()">Home</a>
+  <a href="#beli-paket"     onclick="toggleMenu()">Paket XL-AXIS</a>
+  <a href="#produk-digital" onclick="toggleMenu()">Produk Digital</a>
+  <a href="#cek-area"       onclick="toggleMenu()">Cek Area Akrab</a>
+  <a href="#riwayat"        onclick="toggleMenu()">Riwayat</a>
+  <a href="#snk"            onclick="toggleMenu()">S&K</a>
+</nav>
 
     <div class="pro-actions">
       <button class="pro-iconbtn" onclick="toggleTheme()" aria-label="Toggle theme">🌓</button>
-      <a class="pro-cta" href="https://wa.me/6287777626887" target="_blank" rel="noopener noreferrer">Contact</a>
+      <a class="pro-cta" href="https://wa.me/6287777685250" target="_blank" rel="noopener noreferrer">Contact</a>
       <button class="menu-button" onclick="toggleMenu()" aria-label="Menu">☰</button>
     </div>
   </div>
-
-  <nav id="menu" aria-label="Mobile">
-    <a href="#" onclick="showSection('intro');toggleMenu()">Home</a>
-    <a href="#" onclick="showSection('beli-paket');toggleMenu()">Paket XL-AXIS</a>
-    <a href="#" onclick="showSection('produk-digital');toggleMenu()">Produk Digital</a>
-    <a href="#" onclick="showSection('cek-area');toggleMenu()">Cek Area Akrab</a>
-    <a href="#" onclick="showSection('riwayat');toggleMenu()">Riwayat</a>
-    <a href="#" onclick="showSection('snk');toggleMenu()">S&K</a>
-  </nav>
-</header>
 
 <!-- 🌓 Tema Gelap -->
 <style>
@@ -1920,5 +1920,66 @@ document.addEventListener('DOMContentLoaded', ()=>{
     <p>&copy; 2025 afdhaalstoree</p>
     <p>🩶Testimoni : <a href="https://whatsapp.com/channel/0029VapwPMbF6sn7ZKMdMC2t" style="color:#000000;">Channel Testimoni</a></p>
   </footer>
+
+    <script>
+  // --- HASH ROUTER ---
+  const SECTIONS = ['intro','beli-paket','produk-digital','cek-area','riwayat','snk'];
+
+  function showOnly(sectionId){
+    SECTIONS.forEach(id=>{
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.style.display = (id===sectionId) ? 'block' : 'none';
+    });
+    window.scrollTo({ top:0, behavior:'smooth' });
+  }
+
+  function applyProdukDigitalCategory(cat){
+    try{
+      assignCategoriesPD?.();
+      filterProductsPD?.(cat || 'all');
+    }catch(e){/* lewat saja kalau fungsi belum tersedia */}
+  }
+
+  function handleHashRoute(){
+    // Contoh hash: #produk-digital/ecourse atau #riwayat
+    const raw = (location.hash || '#intro').slice(1); // buang "#"
+    const [section, sub] = raw.split('/');
+
+    // fallback bila hash tidak dikenal
+    const target = SECTIONS.includes(section) ? section : 'intro';
+
+    showOnly(target);
+
+    // sub-route khusus produk digital -> kategori
+    if (target === 'produk-digital') {
+      applyProdukDigitalCategory(sub || 'all');
+    }
+  }
+
+  // Interop dengan klik lama yang memanggil showSection(id)
+  // (kalau masih ada yang pakai)
+  function showSection(id){
+    location.hash = '#'+id; // biar konsisten, kita arahkan lewat hash
+  }
+
+  // Inisialisasi
+  window.addEventListener('hashchange', handleHashRoute);
+  document.addEventListener('DOMContentLoaded', handleHashRoute);
+
+  // Opsional: saat klik chip kategori, update hash juga (#produk-digital/<cat>)
+  (function hookFilterChips(){
+    const bar = document.getElementById('pd-filter');
+    if(!bar) return;
+    bar.addEventListener('click', (e)=>{
+      const btn = e.target.closest('.filter-chip');
+      if(!btn) return;
+      const cat = btn.dataset.filter || 'all';
+      // ubah hash agar bisa di-share:
+      location.hash = '#produk-digital/' + cat;
+    });
+  })();
+</script>
+
 </body>
 </html>
