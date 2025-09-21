@@ -885,24 +885,57 @@ img[loading="lazy"]{content-visibility:auto}
                 height: 60px;
             }
         }
+    .topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* pastikan di atas konten */
+}
+
+/* biar konten tidak ketutup topbar */
+body {
+  padding-top: 120px; /* sesuaikan tinggi total announce + header */
+}
+
+.pro-announce {
+  background: #0f172a;
+  color: #f8fafc;
+  text-align: center;
+  font-size: 14px;
+  padding: 8px 12px;
+}
+
+.pro-header {
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
     </style>
 </head>
 <body style="margin:0; font-family: 'Poppins', sans-serif; background:#f8fafc; color:#1e293b; transition: all 0.3s ease;">
-    <div class="pro-announce">TOKO DIGITAL TERPERCAYA</div>
+   <div class="topbar">
+  <div class="pro-announce">TOKO DIGITAL TERPERCAYA</div>
 
-<header class="pro-header">
-  <div class="pro-container pro-nav">
-    <div class="pro-brand">AFDHAL STORE</div>
-
- <!-- Desktop nav -->
-<nav class="pro-navlist" aria-label="Main">
-  <a href="#intro">Home</a>
-  <a href="#beli-paket">Paket XL-AXIS</a>
-  <a href="#produk-digital">Produk Digital</a>
-  <a href="#cek-area">Cek Area Akrab</a>
-  <a href="#riwayat">Riwayat</a>
-  <a href="#snk">S&K</a>
-</nav>
+  <header class="pro-header">
+    <div class="pro-container pro-nav">
+      <div class="pro-brand">AFDHAL STORE</div>
+      <nav class="pro-navlist" aria-label="Main">
+        <a href="#intro">Home</a>
+        <a href="#beli-paket">Paket XL-AXIS</a>
+        <a href="#produk-digital">Produk Digital</a>
+        <a href="#cek-area">Cek Area Akrab</a>
+        <a href="#riwayat">Riwayat</a>
+        <a href="#snk">S&K</a>
+      </nav>
+      <div class="pro-actions">
+        <button class="pro-iconbtn" onclick="toggleTheme()" aria-label="Toggle theme">🌓</button>
+        <a class="pro-cta" href="https://wa.me/6287777685250" target="_blank" rel="noopener noreferrer">Contact</a>
+        <button class="menu-button" onclick="toggleMenu()" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+</div>
 
 <!-- Mobile -->
 <nav id="menu" aria-label="Mobile">
@@ -913,13 +946,6 @@ img[loading="lazy"]{content-visibility:auto}
   <a href="#riwayat"        onclick="toggleMenu()">Riwayat</a>
   <a href="#snk"            onclick="toggleMenu()">S&K</a>
 </nav>
-
-    <div class="pro-actions">
-      <button class="pro-iconbtn" onclick="toggleTheme()" aria-label="Toggle theme">🌓</button>
-      <a class="pro-cta" href="https://wa.me/6287777685250" target="_blank" rel="noopener noreferrer">Contact</a>
-      <button class="menu-button" onclick="toggleMenu()" aria-label="Menu">☰</button>
-    </div>
-  </div>
 
 <!-- 🌓 Tema Gelap -->
 <style>
