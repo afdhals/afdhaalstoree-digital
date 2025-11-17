@@ -1133,6 +1133,17 @@ window.addEventListener("scroll", revealOnScroll);
   <div class="packages">
     <!-- kartu-kartu produk kamu di sini -->
 <!-- Paket 1 -->
+<div class="package">
+<div class="package-title">🎨Canva Pro Edukasi</div>
+<div class="package-duration">⏰ MASA AKTIF LIFETIME</div>
+<div class="package-details">
+<div class="area-item"><a href="https://github.com/afdhals/afdhaalstoree-digital/blob/main/Canva-Pro-Edukasi.png" target="_blank">
+    <img src="https://raw.githubusercontent.com/afdhals/afdhaalstoree-digital/main/Canva-Pro-Edukasi.png" alt="Canva Edukasi" border="0" /></a></div>
+<div class="area-item">Buat desain yang menarik dengan fitur pro, Garansi 1 Tahun</div>
+</div>
+<div class="package-price">💰 Rp 10.000</div>
+<button class="btn" onclick="openPaymentModal('CANVA PRO EDUKASI', 10000)">Beli Sekarang</button>
+</div>
 <!-- Paket 2 -->
 <div class="package">
 <div class="package-title">🧙ECOURSE - KELAS HACK YOUTUBE </div>
@@ -1386,7 +1397,7 @@ window.addEventListener("scroll", revealOnScroll);
 <span class="area-quota">36,5GB</span>
 </div>
 </div>
-<div class="package-price">💰 Rp 72.000</div>
+<div class="package-price">💰 Rp 75.000</div>
 <button class="btn" onclick="openPaymentModal('PAKET AKRAB XL (BIG)', 75000)">Beli Sekarang</button>
 </div>
 <!-- Paket JUMBO -->
@@ -1411,7 +1422,7 @@ window.addEventListener("scroll", revealOnScroll);
 <span class="area-quota">50GB</span>
 </div>
 </div>
-<div class="package-price">💰 Rp 88.000</div>
+<div class="package-price">💰 Rp 95.000</div>
 <button class="btn" onclick="openPaymentModal('PAKET AKRAB XXL (JUMBO)', 92000)">Beli Sekarang</button>
 </div>
 <!-- Paket MINI-->
@@ -1436,7 +1447,7 @@ window.addEventListener("scroll", revealOnScroll);
 <span class="area-quota">40GB</span>
 </div>
 </div>
-<div class="package-price">💰 Rp 62.000</div>
+<div class="package-price">💰 Rp 65.000</div>
 <button class="btn" onclick="openPaymentModal('PAKET AKRAB L (MINI)', 65000)">Beli Sekarang</button>
 </div>
 <!-- Paket Circle-->
@@ -1691,6 +1702,7 @@ window.addEventListener("scroll", revealOnScroll);
 // ===== 0) Peta Nama Produk -> URL Checkout Lynk (ISI DENGAN PUNYAMU) =====
 const LYNK_CHECKOUTS = {
   // --- PRODUK DIGITAL ---
+  'CANVA PRO EDUKASI': 'http://lynk.id/afdhals/qdwpql7d8lng/checkout',
   'PAKET DIGITAL HEMAT': 'https://lynk.id/afdhals/rnpvrvq0vkr9/checkout?token=cGFyYW1zPSU1QiU1RCZiaWRfcHJpY2U9MCZxdHlfcHJvZD0x',
   'KELAS HACK YOUTOBE': 'http://lynk.id/afdhals/jkowqn70o81q/checkout',
   'KELAS CYBER SECURITY': 'http://lynk.id/afdhals/1nevox48x1do/checkout',
@@ -1887,7 +1899,7 @@ function showSection(id) {
        <script>
 // Pemetaan judul -> kategori (yang tidak terdaftar akan di-infer otomatis)
 const CATEGORY_MAP = {
-  'PROMO MERDEKA - PAKET DIGITAL': 'bundle',
+  'CANVA PRO EDUKASI': 'premium',
   'PAKET DIGITAL HEMAT': 'bundle',
   'KELAS HACK YOUTOBE': 'ecourse',
   'KELAS CYBER SECURITY': 'ecourse',
